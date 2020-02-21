@@ -1,4 +1,4 @@
-package com.fox.algorithm.dataStructure
+package com.fox.algorithm.dataStructure.list
 
 /**
  * @Author fox
@@ -16,7 +16,7 @@ abstract class SampleAbstractList<E> : SampleList<E> {
 
     override fun isEmpty(): Boolean = size() == 0
 
-    override fun add(element: E) {
+    override fun add(element: E?) {
         add(size, element)
     }
 

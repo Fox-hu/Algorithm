@@ -16,4 +16,19 @@ public class _206反转链表 {
         head.next = null;
         return newHead;
     }
+
+    //使用循环的方式
+    public ListNode reverseList1(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode newHead = null;
+        while (head != null) {
+            ListNode temp = head.next;
+            head.next = newHead;
+            newHead = head;
+            head = temp;
+        }
+        return newHead;
+    }
 }

@@ -1,4 +1,4 @@
-package com.fox.algorithm.dataStructure
+package com.fox.algorithm.dataStructure.list
 
 /**
  * @Author fox
@@ -12,7 +12,7 @@ interface SampleList<E> {
 
     fun contains(element: E): Boolean
 
-    fun add(element: E)
+    fun add(element: E?)
 
     fun add(index: Int, element: E?)
 

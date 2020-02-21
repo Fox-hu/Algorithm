@@ -1,12 +1,14 @@
-package com.fox.algorithm.dataStructure
+package com.fox.algorithm.dataStructure.list
 
 import kotlin.math.max
+
+
 
 /**
  * @Author fox
  * @Date 2020/2/17 15:58
  */
-class SampleArrayList<E>(capacity: Int = DEFAULT_CAPACITY) : SampleAbstractList<E>() {
+open class SampleArrayList<E>(capacity: Int = DEFAULT_CAPACITY) : SampleAbstractList<E>() {
 
     companion object {
         const val DEFAULT_CAPACITY = 16
@@ -19,7 +21,7 @@ class SampleArrayList<E>(capacity: Int = DEFAULT_CAPACITY) : SampleAbstractList<
 
         ensureCapacity(size + 1)
 
-        for (i in size - 1 downTo index + 1) {
+        for (i in size - 1 downTo index) {
             elements[i + 1] = elements[i]
         }
         elements[index] = element
@@ -61,14 +63,15 @@ class SampleArrayList<E>(capacity: Int = DEFAULT_CAPACITY) : SampleAbstractList<
     }
 
     override fun indexOf(element: E?): Int {
-        element?.let {
-            elements.forEachIndexed { index, e ->
-                //kotlin中 == 就是equals
-                if (e == element) {
-                    return index
-                }
+        if (element == null) {  // 1
+            for (i in 0 until size) {
+                if (elements[i] == null) return i
             }
-        } ?: return elements.indexOfFirst { it == null }
+        } else {
+            for (i in 0 until size) {
+                if (element.equals(elements[i])) return i // n
+            }
+        }
         return DEFAULT_ELEMENT_NOT_FOUND
     }
 
@@ -78,4 +81,18 @@ class SampleArrayList<E>(capacity: Int = DEFAULT_CAPACITY) : SampleAbstractList<
         }
         size = 0
     }
+
+    override fun toString(): String {
+        val string = StringBuilder()
+        string.append("size=").append(size).append(", [")
+        for (i in 0 until size) {
+            if (i != 0) {
+                string.append(", ")
+            }
+            string.append(elements[i])
+        }
+        string.append("]")
+        return string.toString()
+    }
 }
+
