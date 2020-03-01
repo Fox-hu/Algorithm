@@ -20,4 +20,6 @@ class SampleQueue<E> {
     fun deQueue(): E? = list.remove(0)
 
     fun front(): E? = list.get(0)
+
+    fun clear() = list.clear()
 }

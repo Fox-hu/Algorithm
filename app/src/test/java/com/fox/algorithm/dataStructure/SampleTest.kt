@@ -2,6 +2,7 @@ package com.fox.algorithm.dataStructure
 
 import com.fox.algorithm.dataStructure.list.SampleAbstractList
 import com.fox.algorithm.dataStructure.list.SampleArrayList
+import com.fox.algorithm.dataStructure.queue.SampleCircleQueue
 import com.fox.algorithm.dataStructure.stack.SampleStack
 import org.junit.Test
 
@@ -47,7 +48,7 @@ class SampleTest {
     }
 
     @Test
-    fun testStack(){
+    fun testStack() {
         val stack = SampleStack<Int>()
         stack.push(11)
         stack.push(22)
@@ -59,5 +60,21 @@ class SampleTest {
         stack.top()
 
         println(stack)
+    }
+
+    @Test
+    fun testQueue() {
+        val queue = SampleCircleQueue<Int>()
+        for (i in 0 until 10) {
+            queue.enQueue(i)
+        }
+        for (i in 0 until 5) {
+            queue.deQueue()
+        }
+        println(queue)
+        for (i in 15 until 23) {
+            queue.enQueue(i)
+        }
+        println(queue)
     }
 }
