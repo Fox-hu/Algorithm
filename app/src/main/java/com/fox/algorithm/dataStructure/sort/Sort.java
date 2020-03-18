@@ -1,4 +1,4 @@
-package com.fox.algorithm.dataStructures.sort;
+package com.fox.algorithm.dataStructure.sort;
 
 /**
  * Created by fox.hu on 2018/11/28.
