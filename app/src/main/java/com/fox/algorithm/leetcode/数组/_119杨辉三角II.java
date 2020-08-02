@@ -1,4 +1,4 @@
-package com.fox.algorithm.leetcode;
+package com.fox.algorithm.leetcode.数组;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,8 +6,11 @@ import java.util.List;
 /**
  * Created by fox.hu on 2018/8/30.
  */
+//进阶：
+//
+//        你可以优化你的算法到 O(k) 空间复杂度吗？
 
-public class PascalTriangle119 {
+public class _119杨辉三角II {
     public List<Integer> getRow(int rowIndex) {
         Integer[] integers = new Integer[rowIndex + 1];
         Arrays.fill(integers, 0);
