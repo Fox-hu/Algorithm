@@ -13,10 +13,11 @@ fun swap(intArray: IntArray, i: Int, j: Int) {
 
 //冒泡排序
 fun bubbleSort(array: IntArray) {
-    for (i in array.indices) {
-        for (j in 0 until array.size - i - 1) {
-            if (array[j] > array[j + 1]) {
-                swap(array, j, j + 1)
+    for (end in array.size - 1 downTo 1) {
+        for (begin in 1..end) {
+            // if (array[begin] < array[begin - 1]) {
+            if (array[begin] > array[begin + 1]) {
+                swap(array, begin, begin + 1)
             }
         }
     }
