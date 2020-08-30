@@ -1,4 +1,4 @@
-package com.fox.algorithm.sort
+package com.fox.algorithm.dataStructure.sort
 
 /**
  * @Author fox
