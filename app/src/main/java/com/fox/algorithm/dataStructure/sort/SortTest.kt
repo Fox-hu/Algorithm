@@ -1,8 +1,6 @@
 package com.fox.algorithm.dataStructure.sort
 
 
-import com.fox.algorithm.sampleDataStructure.tools.Asserts
-import com.fox.algorithm.sampleDataStructure.tools.Integers
 import java.util.*
 
 //测试用例
@@ -11,12 +9,11 @@ fun main() {
 //    testSorts(array, InsertionSort())
 }
 
-
 fun testSorts(array: Array<Int>, vararg sorts: Sort<Int>) {
     for (sort in sorts) {
-        val newArray = Integers.copy(array)
+        val newArray = copy(array)
         sort.sort(newArray)
-        Asserts.test(Integers.isAscOrder(newArray))
+        test(isAscOrder(newArray))
     }
     Arrays.sort(sorts)
     for (sort in sorts) {
