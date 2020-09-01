@@ -1,41 +1,72 @@
 package com.fox.algorithm.dataStructure.sort
 
-/**
- * @Author fox
- * @Date 2020/2/22 19:37
- */
+import java.text.DecimalFormat
 
-fun swap(intArray: IntArray, i: Int, j: Int) {
-    val temp = intArray[i]
-    intArray[i] = intArray[j]
-    intArray[j] = temp
-}
+abstract class Sort<T : Comparable<T>> : Comparable<Sort<T>> {
 
-//冒泡排序
-fun bubbleSort(array: IntArray) {
-    for (end in array.size - 1 downTo 1) {
-        for (begin in 1..end) {
-            // if (array[begin] < array[begin - 1]) {
-            if (array[begin] > array[begin + 1]) {
-                swap(array, begin, begin + 1)
-            }
+    protected lateinit var array: Array<T>
+    private var cmpCount = 0
+    private var swapCount = 0
+    private var time: Long = 0
+    private val fmt = DecimalFormat("#.00")
+
+    fun sort(array: Array<T>?) {
+        if (array == null || array.size < 2) {
+            return
         }
+        this.array = array
+        val begin = System.currentTimeMillis()
+        sort()
+        time = System.currentTimeMillis() - begin
     }
-}
 
-//插入排序
-fun insertSort(array: IntArray) {
-    for (i in array.indices) {
-        for (j in i downTo 1) {
-            if (array[j] < array[j - 1]) {
-                swap(array, j, j - 1)
-            }
+    override fun compareTo(o: Sort<T>): Int {
+        var result = (time - o.time).toInt()
+        if (result != 0) return result
+        result = cmpCount - o.cmpCount
+        return if (result != 0) {
+            result
+        } else swapCount - o.swapCount
+    }
+
+    protected abstract fun sort()
+
+    /*
+     * 返回值等于0，代表 array[i1] == array[i2]
+     * 返回值小于0，代表 array[i1] < array[i2]
+     * 返回值大于0，代表 array[i1] > array[i2]
+     */
+    protected fun cmp(i1: Int, i2: Int): Int {
+        cmpCount++
+        return array[i1].compareTo(array[i2])
+    }
+
+    protected fun cmp(v1: T, v2: T): Int {
+        cmpCount++
+        return v1.compareTo(v2)
+    }
+
+    fun swap(i1: Int, i2: Int) {
+        swapCount++
+        val tmp = array[i1]
+        array[i1] = array[i2]
+        array[i2] = tmp
+    }
+
+    override fun toString(): String {
+        val timeStr = "耗时：" + time / 1000.0 + "s(" + time + "ms)"
+        val compareCountStr = "比较：" + numberString(cmpCount)
+        val swapCountStr = "交换：" + numberString(swapCount)
+        return "【${javaClass.simpleName}】\n $timeStr 	$compareCountStr	 $swapCountStr \n" +
+                "------------------------------------------------------------------"
+    }
+
+    private fun numberString(number: Int): String {
+        if (number < 10000) {
+            return "" + number
         }
+        return if (number < 100000000) {
+            fmt.format(number / 10000.0) + "万"
+        } else fmt.format(number / 100000000.0) + "亿"
     }
-}
-
-fun main() {
-    val intArray = intArrayOf(4, 6, 1, 5, 88, 22, 11)
-    bubbleSort(intArray)
-    intArray.forEach { print("[$it]") }
 }
