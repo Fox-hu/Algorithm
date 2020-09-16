@@ -6,7 +6,7 @@ import java.util.*
 //测试用例
 fun main() {
     val array = arrayOf(7, 3, 5, 8, 6, 7, 4, 5)
-//    testSorts(array, InsertionSort())
+    testSorts(array, SelectionSort())
 }
 
 fun testSorts(array: Array<Int>, vararg sorts: Sort<Int>) {
