@@ -1,7 +1,5 @@
 package com.fox.algorithm.leetcode.数组
 
-import java.lang.IllegalArgumentException
-
 /**
  * Created by fox.hu on 2018/8/31.
  */
@@ -27,16 +25,21 @@ class _1两数之和 {
         return ints
     }
 
-    //我们可以一次完成。在进行迭代并将元素插入到表中的同时，我们还会回过头来检查表中是否已经存在当前元素所对应的目标元素。如果它存在，那我们已经找到了对应解，并立即将其返回。
+    // 核心思路在于使用一个map，每遍历array中序号为index的数时，在map中寻找是否存在 target-array[index]的值
+    // 如果存在则说明有 直接返回
+    // 如果不存在 则说明没有 则将此时的array[index]为key，index为value，存入map中 供后续查询
+    // 至于为什么是 array[index]为key 是因为map提供了containsKey方法 可以直接返回是否存在
     fun twoSum1(nums: IntArray, target: Int): IntArray {
         val map = HashMap<Int, Int>()
         for (i in nums.indices) {
             val complement = target - nums[i]
             if (map.containsKey(complement)) {
                 return intArrayOf(map[complement]!!, i)
+            } else {
+                map[nums[i]] = i
             }
-            map[nums[i]] = i
         }
         throw IllegalArgumentException("No two sum solution")
     }
+
 }
