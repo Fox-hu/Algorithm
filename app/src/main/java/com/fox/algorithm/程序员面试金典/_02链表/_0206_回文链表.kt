@@ -1,8 +1,4 @@
-package com.fox.algorithm.程序员面试金典.链表
-
-import com.fox.algorithm.interview.reverse
-import java.util.*
-import kotlin.math.sign
+package com.fox.algorithm.程序员面试金典._02链表
 
 /**
  * @Author fox.hu

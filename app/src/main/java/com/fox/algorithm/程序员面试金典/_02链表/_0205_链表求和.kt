@@ -1,4 +1,4 @@
-package com.fox.algorithm.程序员面试金典.链表
+package com.fox.algorithm.程序员面试金典._02链表
 
 /**
  * @Author fox.hu
