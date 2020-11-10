@@ -22,7 +22,9 @@ class _0302_栈的最小值 {
 
     class MinStack {
 
-        /** initialize your data structure here. */
+        //思路在于使用两个栈 一个记录数据 一个记录最小的值
+        //注意  每次有入栈的操作时 这个记录最小值的栈也要进行入栈 如果当前入栈的值是最小 则入栈这个值 如果当前入栈的值不是最小 则入栈最小值栈的最上方一个
+        //保证 两个栈的高度是一样的
         private val stack = Stack<Int>()
         private val minStack = Stack<Int>()
 
