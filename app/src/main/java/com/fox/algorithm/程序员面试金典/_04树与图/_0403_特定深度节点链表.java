@@ -27,6 +27,8 @@ import java.util.List;
 //输出：[[1],[2,3],[4,5,7],[8]]
 class _0403_特定深度节点链表 {
 
+    //采用层序遍历的变种
+    //每次遍历一层 都将这层元素的左右元素放入待遍历的队列中
     public ListNode[] listOfDepth(TreeNode tree) {
         LinkedList<TreeNode> queue = new LinkedList<>();
         queue.offer(tree);
