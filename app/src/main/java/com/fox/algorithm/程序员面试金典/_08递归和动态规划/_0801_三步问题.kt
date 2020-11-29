@@ -1,4 +1,4 @@
-package com.fox.algorithm.程序员面试金典._08常见题
+package com.fox.algorithm.程序员面试金典._08递归和动态规划
 
 /**
  * @Author fox.hu
@@ -14,7 +14,7 @@ package com.fox.algorithm.程序员面试金典._08常见题
 //提示: n范围在[1, 1000000]之间
 class _0801_三步问题 {
 
-    //todo 动态规划
+    //递归
     fun waysToStep(n: Int): Int {
         return 0
     }
