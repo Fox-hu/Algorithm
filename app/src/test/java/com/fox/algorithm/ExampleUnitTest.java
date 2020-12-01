@@ -1,5 +1,7 @@
 package com.fox.algorithm;
 
+import com.fox.algorithm.dataStructure.算法.回溯.八皇后;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -13,5 +15,10 @@ public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
+    }
+
+    @Test
+    public void nQueens(){
+        new 八皇后().placeQueens(8);
     }
 }
