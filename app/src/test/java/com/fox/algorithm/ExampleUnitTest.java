@@ -1,6 +1,7 @@
 package com.fox.algorithm;
 
 import com.fox.algorithm.dataStructure.算法.回溯.八皇后;
+import com.fox.algorithm.dataStructure.算法.贪心.最优装载;
 
 import org.junit.Test;
 
@@ -20,5 +21,10 @@ public class ExampleUnitTest {
     @Test
     public void nQueens(){
         new 八皇后().placeQueens(8);
+    }
+
+    @Test
+    public void greedy(){
+        new 最优装载().getMaxNum();
     }
 }

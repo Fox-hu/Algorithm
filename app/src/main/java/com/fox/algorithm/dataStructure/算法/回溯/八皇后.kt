@@ -24,6 +24,7 @@ class 八皇后 {
         //如果走到这一行 说明已经找到了八皇后的一个解
         if (row == cols.size) {
             ways += 1
+            show()
             return
         }
         for (col in cols.indices) {
@@ -41,14 +42,34 @@ class 八皇后 {
         //从0到row行进行遍历
         for (i in 0 until row) {
             //如果前row行在第col列已经有摆放的皇后了 则需要跳过
-            if (cols[i] == col) return false
+            if (cols[i] == col) {
+                println("[${row}][${col}]=false")
+                return false
+            }
             //如果斜线上有皇后 也需要跳过
             //斜线的数学公式就是 x1-x2 = (1或者-1)y1-y2或者
             //这里row是大于i的 row-i是大于1的
             if (row - i == abs(col - cols[i])) {
+                println("[${row}][${col}]=false")
                 return false
             }
         }
+
+        println("[${row}][${col}]=true")
         return true
+    }
+
+    private fun show() {
+        for (row in cols.indices) {
+            for (col in cols.indices) {
+                if (cols[row] == col) {
+                    print("1 ")
+                } else {
+                    print("0 ")
+                }
+            }
+            println()
+        }
+        println("--------------------------")
     }
 }
