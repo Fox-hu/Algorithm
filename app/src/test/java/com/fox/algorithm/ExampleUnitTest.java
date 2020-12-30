@@ -1,9 +1,9 @@
 package com.fox.algorithm;
 
-import com.fox.algorithm.dataStructure.算法.回溯.八皇后;
-import com.fox.algorithm.dataStructure.算法.贪心.最优装载;
-import com.fox.algorithm.dataStructure.算法.贪心.背包问题;
-import com.fox.algorithm.dataStructure.算法.贪心.零钱兑换;
+import com.fox.algorithm.数据结构与算法.算法.回溯.八皇后;
+import com.fox.algorithm.数据结构与算法.算法.贪心.最优装载;
+import com.fox.algorithm.数据结构与算法.算法.贪心.背包问题;
+import com.fox.algorithm.数据结构与算法.算法.贪心.零钱兑换;
 
 import org.junit.Test;
 
