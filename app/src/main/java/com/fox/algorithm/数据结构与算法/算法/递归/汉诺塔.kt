@@ -11,6 +11,7 @@ class 汉诺塔 {
 
     //递归的思路在于
     //先将n-1个盘子移动到p2,然后将n移动到p3 最后将n-1个盘子移动到p3
+    //p1:原柱子 p2:辅助柱子 p3:目标柱子
     fun hanoi(n: Int, p1: String, p2: String, p3: String) {
         if (n == 1) {
             move(n, p1, p3)
