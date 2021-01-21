@@ -49,7 +49,25 @@ fun coins1(n: Int, dp: IntArray): Int {
     return dp[n]
 }
 
+
+//递推 自底向上
+//依次求出dp[i]..dp[n]的值 最终dp[n]就是最终的结果
+fun coins2(n: Int): Int {
+    if (n < 1) return -1
+    val dp = IntArray(n + 1)
+    for (i in 1..n) {
+        var min = Int.MAX_VALUE
+        if (i >= 1) min = Math.min(dp[i - 1], min)
+        if (i >= 5) min = Math.min(dp[i - 5], min)
+        if (i >= 20) min = Math.min(dp[i - 20], min)
+        if (i >= 25) min = Math.min(dp[i - 25], min)
+        dp[i] = min + 1
+    }
+    return dp[n]
+}
+
 fun main() {
     println(coins(41))
     println(coins1(17))
+    println(coins2(90))
 }
