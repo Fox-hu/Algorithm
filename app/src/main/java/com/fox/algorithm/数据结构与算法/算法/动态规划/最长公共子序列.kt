@@ -39,6 +39,27 @@ fun lengthLCS(nums1: IntArray, i: Int, nums2: IntArray, j: Int): Int {
     }
 }
 
+/*
+*采用动态规划的方式
+*数组dp[i][j]代表的是【nums1 前 i 个元素】与【nums2 前 j 个元素】的最长公共子序列长度
+*需要i*j个数据空间
+*/
+fun lengthLCS1(nums1: IntArray, nums2: IntArray): Int {
+    if (nums1.isEmpty() || nums2.isEmpty()) return 0
+    val dp = Array(nums1.size + 1) { IntArray(nums2.size + 1) }
+    for (i in 1..nums1.size) {
+        for (j in 1..nums2.size) {
+            if (nums1[i - 1] == nums2[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1] + 1
+            } else {
+                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1])
+            }
+        }
+    }
+    return dp[nums1.size][nums2.size]
+}
+
 fun main() {
     println(lengthLCS(intArrayOf(1, 3, 5, 9, 10), intArrayOf(1, 4, 9, 10)))
+    println(lengthLCS1(intArrayOf(1, 3, 5, 9, 10), intArrayOf(1, 4, 9, 10)))
 }
