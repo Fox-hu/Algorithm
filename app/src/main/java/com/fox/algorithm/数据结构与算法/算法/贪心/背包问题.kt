@@ -1,6 +1,5 @@
 package com.fox.algorithm.数据结构与算法.算法.贪心
 
-import com.fox.algorithm.数据结构与算法.算法.动态规划.coins
 import java.util.*
 import kotlin.Comparator
 
