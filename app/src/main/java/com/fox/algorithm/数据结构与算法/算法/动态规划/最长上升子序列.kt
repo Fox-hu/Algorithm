@@ -29,11 +29,13 @@ package com.fox.algorithm.数据结构与算法.算法.动态规划
 你能将算法的时间复杂度降低到 O(n log(n)) 吗?
 */
 
-/* 动态规划解决
-dp[i] 是以nums[i]为结尾的最长上升子序列的长度
-遍历 j ∈ [0, i),当 nums[i] > nums[j]时,nums[i] 可以接在 nums[j] 后面，形成一个比 dp(j) 更长的上升子序列，长度为 dp(j) + 1
+/* 动态规划
+dp[i] 是以nums[i]为结尾的最长上升子序列的长度,遍历 j ∈ [0, i)
+当 nums[i] > nums[j]时
+nums[i] 可以接在 nums[j] 后面，形成一个比 dp(j) 更长的上升子序列，长度为 dp(j) + 1
 dp(i) = max { dp(i), dp(j) + 1 }
-当 nums[i] ≤ nums[j]时nums[i] 不能接在 nums[j] 后面，跳过此次遍历（continue）
+当 nums[i] ≤ nums[j]时
+nums[i] 不能接在 nums[j] 后面，跳过此次遍历（continue）
 */
 fun lengthOfLIS(nums: IntArray): Int {
     if (nums.isEmpty()) return 0
@@ -51,6 +53,36 @@ fun lengthOfLIS(nums: IntArray): Int {
     return max
 }
 
+/*二分搜索
+把每个数字看做是一张扑克牌，从左到右按顺序处理每一个扑克牌
+将它压在（从左边数过来）第一个牌顶 ≥ 它的牌堆上面
+如果找不到牌顶 ≥ 它的牌堆，就在最右边新建一个牌堆，将它放入这个新牌堆中
+当处理完所有牌，最终牌堆的数量就是最长上升子序列的长度
+*/
+fun lengthOfLISByBinarySearch(nums: IntArray): Int {
+    if (nums.isEmpty()) return 0
+    val topArray = IntArray(nums.size)
+    var length = 0
+    for (num in nums) {
+        var j = 0
+        while (j < length) {
+            //如果当前牌小于当前牌顶，则覆盖牌顶
+            if (topArray[j] >= num) {
+                topArray[j] = num
+                break
+            }
+            //切换牌堆
+            j += 1
+        }
+        //所有牌堆都不能满足 另起牌堆 将num赋值给新牌堆的牌顶
+        if (j == length) {
+            length += 1
+            topArray[j] = num
+        }
+    }
+    return length
+}
+
 fun main() {
-    println(lengthOfLIS(intArrayOf(10, 2, 2, 5, 1, 7, 101, 18)))
+    println(lengthOfLISByBinarySearch(intArrayOf(10, 2, 2, 5, 1, 7, 101, 18)))
 }
