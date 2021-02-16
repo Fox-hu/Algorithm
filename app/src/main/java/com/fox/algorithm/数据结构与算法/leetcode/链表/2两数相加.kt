@@ -25,6 +25,32 @@ import com.fox.algorithm.数据结构与算法.leetcode.链表.ListNode
 提示：
 每个链表中的节点数在范围 [1, 100] 内,0 <= Node.val <= 9 题目数据保证列表表示的数字不含前导零
  */
+
 fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? {
-    return null
+    if (l1 == null) return l2
+    if (l2 == null) return l1
+
+    val dummyHead = ListNode(0)
+    var last = dummyHead
+    var l1Temp: ListNode? = l1
+    var l2Temp: ListNode? = l2
+    var carry = 0
+    while (l1Temp != null || l2Temp != null) {
+        val v1 = l1Temp?.`val` ?: 0
+        val v2 = l2Temp?.`val` ?: 0
+        val sum = v1 + v2 + carry
+        //设置进位值
+        carry = sum / 10
+        //sum的个位数作为新节点的值
+        last.next = ListNode(sum % 10)
+        last = last.next!!
+        l1Temp = l1Temp?.next
+        l2Temp = l2Temp?.next
+    }
+
+    //最后的进位别忘了
+    if (carry > 0) {
+        last.next = ListNode(1)
+    }
+    return dummyHead.next
 }

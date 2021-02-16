@@ -3,9 +3,9 @@ package com.fox.algorithm.数据结构与算法.leetcode.链表
 /**
  * @Author fox
  * @Date 2020/2/18 19:53
- * https://leetcode-cn.com/problems/reverse-linked-list/
  */
-/*
+
+/*https://leetcode-cn.com/problems/reverse-linked-list/
 反转一个单链表。
 示例:
 输入: 1->2->3->4->5->NULL
@@ -26,16 +26,16 @@ fun reverseList(head: ListNode?): ListNode? {
 
 //使用循环的方式
 fun reverseList1(head: ListNode?): ListNode? {
-    var head = head
-    if (head?.next == null) {
-        return head
+    var headTemp = head
+    if (headTemp?.next == null) {
+        return headTemp
     }
     var newHead: ListNode? = null
-    while (head != null) {
-        val temp = head.next
-        head.next = newHead
-        newHead = head
-        head = temp
+    while (headTemp != null) {
+        val temp = headTemp.next
+        headTemp.next = newHead
+        newHead = headTemp
+        headTemp = temp
     }
     return newHead
 }

@@ -1,5 +1,7 @@
 package com.fox.algorithm.程序员面试金典._02链表
 
+import com.fox.algorithm.数据结构与算法.leetcode.链表.ListNode
+
 /**
  * @Author fox.hu
  * @Date 2020/10/30 10:57
@@ -10,9 +12,8 @@ package com.fox.algorithm.程序员面试金典._02链表
 //示例:
 //输入: head = 3->5->8->5->10->2->1, x = 5
 //输出: 3->1->2->10->5->5->8
-class _0204_分割链表 {
-    //题目没读懂 估计翻译有问题
-    fun partition(head: ListNode?, x: Int): ListNode? {
-        return null
-    }
+
+/** @see com.fox.algorithm.数据结构与算法.leetcode.链表.partition */
+fun partition(head: ListNode?, x: Int): ListNode? {
+    return null
 }

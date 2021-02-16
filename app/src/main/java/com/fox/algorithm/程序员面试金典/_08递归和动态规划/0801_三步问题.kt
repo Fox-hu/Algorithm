@@ -12,10 +12,9 @@ package com.fox.algorithm.程序员面试金典._08递归和动态规划
 //输入：n = 3             输入：n = 5
 //输出：4                 输出：13
 //提示: n范围在[1, 1000000]之间
-class _0801_三步问题 {
 
-    //递归
-    fun waysToStep(n: Int): Int {
-        return 0
-    }
+
+//递归
+fun waysToStep(n: Int): Int {
+    return 0
 }
