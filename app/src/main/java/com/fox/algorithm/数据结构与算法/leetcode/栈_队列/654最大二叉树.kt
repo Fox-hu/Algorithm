@@ -57,18 +57,20 @@ private fun findRoot(nums: IntArray, l: Int, r: Int): TreeNode? {
     return root
 }
 
-//变种 返回一个数组
+//变种 返回一个数组 这个数组代表着这个二叉树
 //这个数组存储的是其根节点的索引 即min{左边第一个比此节点大,右边第一个比此节点大}的值的索引值
-//使用一个栈 保持保持栈从栈底到栈顶是单调递减的  则
+//使用一个栈 保持栈从栈底到栈顶是单调递减的  则
 //入栈操作 代表栈顶节点是首个左边比入栈节点大的值
 //出栈操作 代表入栈节点是首个右边比栈顶节点大的值
 fun constructMaximumBinaryTreeByStack(nums: IntArray): IntArray? {
     //扫描一遍所有的数组
     //保持栈从栈底到栈顶是单调递减的
-
+    if (nums.isEmpty()) return null
     val lis = IntArray(nums.size)
     val ris = IntArray(nums.size)
+    val pis = IntArray(nums.size)
     val stack = Stack<Int>()
+
     for (i in nums.indices) {
         lis[i] = -1
         ris[i] = -1
@@ -77,7 +79,21 @@ fun constructMaximumBinaryTreeByStack(nums: IntArray): IntArray? {
             ris[stack.pop()] = i
         }
         lis[i] = if (stack.isEmpty()) -1 else stack.peek()
+        stack.push(i)
     }
 
-    return null
+    //比较lis和ris中 索引 指向的位置那个小 取哪个
+    for (i in nums.indices) {
+        pis[i] = when {
+            (lis[i] == -1 && ris[i] == -1) -> -1
+            (lis[i] == -1) -> ris[i]
+            (ris[i] == -1) -> lis[i]
+            else -> if (nums[lis[i]] < nums[ris[i]]) lis[i] else ris[i]
+        }
+    }
+    return pis
+}
+
+fun main() {
+    println(constructMaximumBinaryTreeByStack(intArrayOf(3, 2, 1, 6, 0, 5)))
 }
