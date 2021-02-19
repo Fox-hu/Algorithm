@@ -1,4 +1,4 @@
-package com.fox.algorithm.数据结构与算法.leetcode.数组_排序
+package com.fox.algorithm.数据结构与算法.leetcode.字符串
 
 /**
  * @Author Fox
@@ -26,10 +26,14 @@ package com.fox.algorithm.数据结构与算法.leetcode.数组_排序
 
 fun lengthOfLongestSubstring(s: String): Int {
     if (s.isEmpty()) return 0
-    val map = hashMapOf<Char, Int>()
-    var max = 0
-    var left = 0
+    val map = hashMapOf<Char, Int>() // key是字符 value是key字符所在的数组下标
+    var max = 0 //滑动窗口右指针
+    var left = 0 //滑动窗口左指针
 
+    //使用滑动窗口遍历字符串
+    //1.如果当前字符c没有记录 说明没有重复 调整右边界
+    //2.如果当前字符c以及被记录了 说明已经有了重复字符 调整左边界，再调整右边界
+    //3.注意左右边界都要和历史最大比较
     for (i in s.indices) {
         if (map.containsKey(s[i])) {
             left = Math.max(left, map[s[i]]!! + 1)

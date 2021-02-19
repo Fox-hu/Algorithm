@@ -1,4 +1,4 @@
-package com.fox.algorithm.程序员面试金典._01字符串
+package com.fox.algorithm.数据结构与算法.leetcode.字符串
 
 /**
  * @Author Fox
@@ -17,9 +17,8 @@ package com.fox.algorithm.程序员面试金典._01字符串
 提示：
 字符串长度在[0, 100000]范围内。*/
 
-/**
- * @see com.fox.algorithm.数据结构与算法.leetcode.字符串.isFlipedString
- */
+
+// 解题思路在于 如果s2是s1旋转而来 则s1+s1中就一定包含了s2
 fun isFlipedString(s1: String, s2: String): Boolean {
-    return false
+    return s1.length == s2.length && (s1 + s1).contains(s2)
 }
