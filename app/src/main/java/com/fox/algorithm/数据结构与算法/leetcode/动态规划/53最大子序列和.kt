@@ -1,6 +1,6 @@
-package com.fox.algorithm.数据结构与算法.算法.动态规划
+package com.fox.algorithm.数据结构与算法.leetcode.动态规划
 
-import com.fox.algorithm.数据结构与算法.算法.分治.maxSubArrayByDivide
+import com.fox.algorithm.数据结构与算法.leetcode.分治.maxSubArrayByDivide
 
 /**
  * @Author Fox

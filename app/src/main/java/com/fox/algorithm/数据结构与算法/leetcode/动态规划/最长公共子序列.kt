@@ -1,4 +1,4 @@
-package com.fox.algorithm.数据结构与算法.算法.动态规划
+package com.fox.algorithm.数据结构与算法.leetcode.动态规划
 
 /**
  * @Author Fox

@@ -1,4 +1,4 @@
-package com.fox.algorithm.数据结构与算法.算法.回溯
+package com.fox.algorithm.数据结构与算法.leetcode.回溯
 
 import kotlin.math.abs
 

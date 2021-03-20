@@ -31,6 +31,7 @@ fun getIntersectionNode(headA: ListNode?, headB: ListNode?): ListNode? {
     //如果遍历完了A，则将B的头部接上去再遍历，
     //B也是同样的操作 达到拼接链表的目的 最终跳出循环的时候就是相交的节点
     while (curA != curB) {
+        //注意这个地方如果是空 则是headB 和 headA！！！
         curA = if (curA == null) headB else curA.next
         curB = if (curB == null) headA else curB.next
     }

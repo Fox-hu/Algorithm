@@ -39,6 +39,16 @@ fun reverse(x: Int): Int {
     return ret
 }
 
+fun reverse1(x: Int): Int {
+    var n = 0L
+    var temp = x
+    while (temp != 0) {
+        n = n * 10 + temp % 10
+        temp /= 10
+    }
+    return if (n > Int.MAX_VALUE || n < Int.MIN_VALUE) 0 else n.toInt()
+}
+
 fun main() {
     println(reverse(123))
 }

@@ -1,4 +1,4 @@
-package com.fox.algorithm.数据结构与算法.算法.贪心
+package com.fox.algorithm.数据结构与算法.leetcode.贪心
 
 import java.util.*
 

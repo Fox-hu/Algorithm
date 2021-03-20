@@ -27,6 +27,7 @@ nums2.length == n
 
 /*
 思路 从后往前遍历 nums1与nums2 取出两者大的一位填充最后一位后继续 直至比较完毕
+要保证l1 l2都是要大于等于0的
 * */
 fun merge(nums1: IntArray, m: Int, nums2: IntArray, n: Int): Unit {
     var i1 = m - 1

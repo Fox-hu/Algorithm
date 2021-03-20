@@ -1,11 +1,12 @@
-package com.fox.algorithm.数据结构与算法.算法.递归
+package com.fox.algorithm.数据结构与算法.leetcode.递归
 
 /**
  * @Author Fox
  * @Date 2020/11/29 22:13
  */
-//楼梯有n阶台阶，上楼可以走1阶，也可以一步上2阶，走完n阶台阶共有多少中不同的走法？
-
+/*https://leetcode-cn.com/problems/climbing-stairs/
+楼梯有n阶台阶，上楼可以走1阶，也可以一步上2阶，走完n阶台阶共有多少中不同的走法？
+ */
 
 //使用递归的方式进行
 fun climbStairs(n: Int): Int {
@@ -26,7 +27,7 @@ fun climbStairs1(n: Int): Int {
     return second
 }
 
-fun main(){
+fun main() {
     climbStairs(20)
     climbStairs1(20)
 }

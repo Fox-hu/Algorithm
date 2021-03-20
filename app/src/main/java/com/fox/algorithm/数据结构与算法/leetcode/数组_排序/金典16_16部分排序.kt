@@ -23,7 +23,7 @@ https://leetcode-cn.com/problems/sub-sort-lcci/
 * 再从右到左边扫描 找到最大逆序对的位置
 * */
 fun subSort(array: IntArray): IntArray {
-    if (array.size <= 1) return intArrayOf(-1, -1)
+    if (array.isEmpty()) return intArrayOf(-1, -1)
     //从左扫描到右 正序逐渐变大
     var max = array[0]
     //用来记录最右边的那个逆序对的位置
