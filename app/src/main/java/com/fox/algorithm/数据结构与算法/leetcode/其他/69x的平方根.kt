@@ -1,7 +1,5 @@
 package com.fox.algorithm.数据结构与算法.leetcode.其他
 
-import com.fox.algorithm.程序员面试金典._04树与图.ret
-
 /**
  * @Author fox
  * @Date 2021/3/20 21:17
@@ -32,7 +30,7 @@ fun mySqrt(x: Int): Int {
 
     while (left <= right) {
         val mid = left + (right - left) / 2
-        if(mid.toLong() * mid.toLong() <= x.toLong()){
+        if (mid.toLong() * mid.toLong() <= x.toLong()) {
             ans = mid
             left = mid + 1
         } else {

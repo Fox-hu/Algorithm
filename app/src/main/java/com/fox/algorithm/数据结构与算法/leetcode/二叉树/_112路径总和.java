@@ -1,8 +1,8 @@
-package com.fox.algorithm.数据结构与算法.leetcode.二叉树
+package com.fox.algorithm.数据结构与算法.leetcode.二叉树;
 
 /**
  * @Author Fox
- * @Date 2021/3/20 14:27
+ * @Date 2021/3/24 21:16
  */
 
 /*
@@ -16,10 +16,13 @@ package com.fox.algorithm.数据结构与算法.leetcode.二叉树
 -1000 <= Node.val <= 1000
 -1000 <= targetSum <= 1000
  */
-fun hasPathSum(root: TreeNode?, targetSum: Int): Boolean {
-    if (root == null) return false
-    if (root.left == null && root.right == null) return root.`val` == targetSum
-    val result = targetSum - root.`val`
-    return hasPathSum(root.left, result) || hasPathSum(root.right, result)
-}
 
+class _112路径总和 {
+
+    public boolean hasPathSum(TreeNode root, int targetSum) {
+        if(root == null) return false;
+        if(root.right == null && root.left == null) return root.val == targetSum;
+        int result = targetSum - root.val;
+        return hasPathSum(root.left,result) || hasPathSum(root.right,result);
+    }
+}

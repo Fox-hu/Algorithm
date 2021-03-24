@@ -27,6 +27,6 @@ fun mergeTwoLists(l1: ListNode?, l2: ListNode?): ListNode? {
         //这个不能忘
         pre = pre.next!!
     }
-    pre.next = if (temp1 == null) temp2 else temp1
+    pre.next = temp1 ?: temp2
     return preHead.next
 }

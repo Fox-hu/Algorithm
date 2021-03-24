@@ -39,6 +39,13 @@ fun majorityElement(nums: IntArray): Int {
     return index
 }
 
+/*
+摩尔投票法思路
+候选人(cand_num)初始化为nums[0]，票数count初始化为1。
+当遇到与cand_num相同的数，则票数count = count + 1，否则票数count = count - 1。
+当票数count为0时，更换候选人，并将票数count重置为1。
+遍历完数组后，cand_num即为最终答案。
+ */
 fun majorityElement_MooreVote(nums: IntArray): Int {
     var res = 0
     var cnt = 0
