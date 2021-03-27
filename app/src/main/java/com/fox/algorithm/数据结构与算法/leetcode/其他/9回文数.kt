@@ -17,7 +17,7 @@ fun isPalindrome(x: Int): Boolean {
 
     while (temp > palindrome) {
         palindrome = palindrome * 10 + temp % 10
-        temp = temp / 10
+        temp /= 10
     }
 
     return temp == palindrome || temp == palindrome / 10
