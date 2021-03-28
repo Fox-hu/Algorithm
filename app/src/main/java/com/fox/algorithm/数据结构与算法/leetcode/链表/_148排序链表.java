@@ -19,30 +19,17 @@ class _148排序链表 {
 
     //思路在于先拆出两个有序的链表后进行合并
     public ListNode sortList(ListNode head) {
-        return sortList(head, null);
-    }
-
-    public ListNode sortList(ListNode head, ListNode tail) {
-        if (head == null) {
+        if (head == null || head.next == null) {
             return head;
         }
-        if (head.next == tail) {
-            //这个地方一定不要漏了
-            head.next = null;
-            return head;
-        }
-        ListNode slow = head, fast = head;
-        while (fast != tail) {
+        ListNode slow = head, fast = head.next;
+        while (fast != null && fast.next != null) {
             slow = slow.next;
-            fast = fast.next;
-            if (fast != tail) {
-                fast = fast.next;
-            }
+            fast = fast.next.next;
         }
-        ListNode mid = slow;
-        ListNode list1 = sortList(head, mid);
-        ListNode list2 = sortList(mid, tail);
-        return merge(list1, list2);
+        ListNode right = slow.next;
+        slow.next = null;
+        return merge(sortList(head), sortList(right));
     }
 
     private ListNode merge(ListNode l1, ListNode l2) {

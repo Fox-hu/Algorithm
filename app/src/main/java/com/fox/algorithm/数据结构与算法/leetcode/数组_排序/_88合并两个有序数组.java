@@ -1,8 +1,8 @@
-package com.fox.algorithm.数据结构与算法.面试.数组_排序
+package com.fox.algorithm.数据结构与算法.leetcode.数组_排序;
 
 /**
- * @Author fox.hu
- * @Date 2021/2/9 14:48
+ * @Author Fox
+ * @Date 2021/3/28 13:11
  */
 
 /*
@@ -29,16 +29,17 @@ nums2.length == n
 思路 从后往前遍历 nums1与nums2 取出两者大的一位填充最后一位后继续 直至比较完毕
 要保证l1 l2都是要大于等于0的
 * */
-fun merge(nums1: IntArray, m: Int, nums2: IntArray, n: Int): Unit {
-    var i1 = m - 1
-    var i2 = n - 1
-    var cur = nums1.size - 1
 
-    while (i2 >= 0) {
-        if (i1 >= 0 && nums2[i2] < nums1[i1]) {
-            nums1[cur--] = nums1[i1--]
-        } else {
-            nums1[cur--] = nums2[i2--]
+class _88合并两个有序数组 {
+
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int cur = nums1.length - 1, l1 = m - 1, l2 = n - 1;
+        while (l2 >= 0) {
+            if (l1 >= 0 && nums2[l2] < nums1[l1]) {
+                nums1[cur--] = nums1[l1--];
+            } else {
+                nums1[cur--] = nums2[l2--];
+            }
         }
     }
 }
