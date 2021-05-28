@@ -1,0 +1,15 @@
+//当task被创建时的回调
+getTasks().whenTaskAdded { Task task ->
+    println "The task ${task.getName()} is added to the TaskContainer"
+}
+
+getTasks().create("task8")
+
+getTasks().create([name: "task9",group: "MyGroup",description: "这是task9的描述",dependsOn: ["task1"]])
+
+getTasks().create("task10",{
+    group "MyGroup"
+    setDependsOn(["task8","task9"])
+    setDescription "这是task10的描述"
+})
+

@@ -1,0 +1,18 @@
+task inputOutputTest1{
+    //设置input
+    inputs.property("name","fox")
+    inputs.property("age",20)
+    //设置output
+    outputs.file("$buildDir/test.txt")
+
+    doLast {
+        println "exec task inputOutputTest1"
+    }
+}
+
+task inputOutputTest2{
+    doLast {
+        println "exec task inputOutputTest2"
+    }
+}
+

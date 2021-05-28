@@ -16,6 +16,12 @@ buildscript {
     }
 }
 
+apply from: 'gradleTest.gradle'
+apply from: 'taskTest.gradle'
+apply from: 'taskContainerTest.gradle'
+apply from: 'inputOutputTest.gradle'
+apply from: 'projectTest.gradle'
+
 allprojects {
     repositories {
         google()
@@ -27,3 +33,5 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
