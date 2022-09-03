@@ -63,13 +63,11 @@ for (int i = 0; i < k; i++) {
 class Solution {
     public int removeDuplicates(int[] nums) {
         if(nums.length == 0 || nums.length == 1) return nums.length;
-        int j = 0,k = 1;
-        while(k<nums.length){
-            if(nums[j]!=nums[k]) {
-                nums[j+1] = nums[k];
-                j++;
+        int j = 0;
+        for(int k = 1;k<nums.length;k++){
+            if(nums[k] != nums[j] ){
+                nums[++j] = nums[k];
             }
-            k++;
         }
         return j+1;
     }
