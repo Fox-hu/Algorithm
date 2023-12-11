@@ -62,14 +62,17 @@ for (int i = 0; i < k; i++) {
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int removeDuplicates(int[] nums) {
-        if(nums.length == 0 || nums.length == 1) return nums.length;
-        int j = 0;
-        for(int k = 1;k<nums.length;k++){
-            if(nums[k] != nums[j] ){
-                nums[++j] = nums[k];
+        if (nums.length == 0 || nums.length == 1) {
+            return nums.length;
+        }
+        int start = 0;
+        for (int loop = 1; loop < nums.length; loop++) {
+            if (nums[start] != nums[loop]) {
+                //如果两者不相等 则把num[loop]的值复制到num[start+1]后 start++
+                nums[++start] = nums[loop];
             }
         }
-        return j+1;
+        return start + 1;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
