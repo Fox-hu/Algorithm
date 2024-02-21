@@ -55,7 +55,7 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-//package com.fox.algorithm.leetcode.editor.cn;
+package com.fox.algorithm.leetcode.editor.cn;
 class Solution {
     //两个链表可能容量不一 需要考虑为空的情况
     //有进位时构造进位的node

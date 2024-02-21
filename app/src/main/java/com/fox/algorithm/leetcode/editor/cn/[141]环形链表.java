@@ -58,6 +58,8 @@
 
 //import com.fox.algorithm.leetcode.editor.cn.ListNode;
 
+import com.fox.algorithm.leetcode.editor.cn.ListNode;
+
 /**
  * Definition for singly-linked list.
  * class ListNode {
