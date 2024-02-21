@@ -59,7 +59,7 @@
 
 //leetcode submit region begin(Prohibit modification and deletion)
 
-//import com.fox.algorithm.leetcode.editor.cn.ListNode;
+import com.fox.algorithm.leetcode.editor.cn.ListNode;
 
 /**
  * Definition for singly-linked list.
@@ -94,6 +94,7 @@ public class Solution {
             }
         }
         fast = head;
+        //上一个循环以及判断是否有环 这里不会是死循环
         while (fast != slow) {
             slow = slow.next;
             fast = fast.next;
