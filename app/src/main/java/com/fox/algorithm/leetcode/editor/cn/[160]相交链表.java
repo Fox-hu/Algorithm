@@ -88,11 +88,8 @@
 //
 // Related Topics 哈希表 链表 双指针 👍 2363 👎 0
 
-
-//leetcode submit region begin(Prohibit modification and deletion)
-
-
 package com.fox.algorithm.leetcode.editor.cn;
+//leetcode submit region begin(Prohibit modification and deletion)
 
 /**
  * Definition for singly-linked list.

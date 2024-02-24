@@ -56,10 +56,9 @@
 //
 // Related Topics 哈希表 链表 双指针 👍 2468 👎 0
 
+package com.fox.algorithm.leetcode.editor.cn;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-
-package com.fox.algorithm.leetcode.editor.cn;
 
 /**
  * Definition for singly-linked list.

@@ -34,10 +34,9 @@
 //
 // Related Topics 递归 链表 👍 2150 👎 0
 
+package com.fox.algorithm.leetcode.editor.cn;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-
-package com.fox.algorithm.leetcode.editor.cn;
 
 /**
  * Definition for singly-linked list.

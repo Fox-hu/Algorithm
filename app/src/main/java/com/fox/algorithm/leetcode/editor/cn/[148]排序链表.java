@@ -40,11 +40,9 @@
 // 进阶：你可以在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序吗？ 
 //
 // Related Topics 链表 双指针 分治 排序 归并排序 👍 2241 👎 0
-
+package com.fox.algorithm.leetcode.editor.cn;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-
-package com.fox.algorithm.leetcode.editor.cn;
 
 import java.util.Arrays;
 

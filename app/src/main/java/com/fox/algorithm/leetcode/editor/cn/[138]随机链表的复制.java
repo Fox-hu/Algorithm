@@ -60,7 +60,7 @@
 // 
 //
 // Related Topics 哈希表 链表 👍 1326 👎 0
-
+package com.fox.algorithm.leetcode.editor.cn;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 /*
@@ -77,7 +77,6 @@ class Node {
     }
 }
 */
-package com.fox.algorithm.leetcode.editor.cn;
 
 import java.util.HashMap;
 import java.util.Map;

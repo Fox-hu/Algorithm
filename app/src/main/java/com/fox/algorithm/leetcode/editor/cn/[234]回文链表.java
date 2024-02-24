@@ -31,10 +31,8 @@
 //
 // Related Topics 栈 递归 链表 双指针 👍 1865 👎 0
 
-
-//leetcode submit region begin(Prohibit modification and deletion)
-
 package com.fox.algorithm.leetcode.editor.cn;
+//leetcode submit region begin(Prohibit modification and deletion)
 
 import java.util.ArrayList;
 import java.util.List;

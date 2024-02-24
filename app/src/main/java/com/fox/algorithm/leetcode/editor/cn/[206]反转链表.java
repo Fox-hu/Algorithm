@@ -42,10 +42,8 @@
 //
 // Related Topics 递归 链表 👍 3501 👎 0
 
-
-//leetcode submit region begin(Prohibit modification and deletion)
-
 package com.fox.algorithm.leetcode.editor.cn;
+//leetcode submit region begin(Prohibit modification and deletion)
 
 /**
  * Definition for singly-linked list.
