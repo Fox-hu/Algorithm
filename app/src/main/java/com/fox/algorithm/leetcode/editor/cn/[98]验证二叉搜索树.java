@@ -59,7 +59,9 @@ class Solution {
     //中间变量pre 每次遍历后更新 用于下次比较
     //因为递归的顺序是左-中-右 跳出递归的条件为
     //1、为空 2、左子树不满足 3、root的值<=左子树的值
-    long pre = Long.MIN_VALUE;
+
+    //注意这里的用例 小于Integer.MIN_VALUE 所以注意要使用 Integer.MIN_VALUE
+    long pre = Integer.MIN_VALUE;
     public boolean isValidBST(TreeNode root) {
         if(root == null) return true;
         if(!isValidBST(root.left)) return false;
