@@ -45,7 +45,7 @@
 
 //leetcode submit region begin(Prohibit modification and deletion)
 
-import com.fox.algorithm.leetcode.editor.cn.ListNode;
+package com.fox.algorithm.leetcode.editor.cn;
 
 /**
  * Definition for singly-linked list.

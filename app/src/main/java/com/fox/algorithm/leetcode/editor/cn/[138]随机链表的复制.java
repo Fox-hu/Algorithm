@@ -77,8 +77,7 @@ class Node {
     }
 }
 */
-
-import com.fox.algorithm.leetcode.editor.cn.Node;
+package com.fox.algorithm.leetcode.editor.cn;
 
 import java.util.HashMap;
 import java.util.Map;
