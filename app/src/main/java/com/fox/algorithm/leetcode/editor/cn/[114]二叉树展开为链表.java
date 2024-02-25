@@ -63,6 +63,10 @@ package com.fox.algorithm.leetcode.editor.cn;
  * }
  */
 class Solution {
+    //采用递归的方式 可以分为三步：
+    //1. 首先将根节点的左子树变成链表
+    //2. 其次将根节点的右子树变成链表
+    //3. 最后将变成链表的右子树放在变成链表的左子树的最右边
     public void flatten(TreeNode root) {
         if (root == null) {
             return;
