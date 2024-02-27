@@ -46,7 +46,7 @@ import java.util.Map;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
-    //回溯算法 注意 这里的回溯有if/else 和其他的略不一样
+    //回溯算法
     private final Map<Character, String> phoneMap = new HashMap<Character, String>() {{
         put('2', "abc");
         put('3', "def");
@@ -70,17 +70,16 @@ class Solution {
     private void backtrack(String digits, List<String> res, int start, StringBuffer sb) {
         if (digits.length() == start) {
             res.add(sb.toString());
-        } else {
-            char digit = digits.charAt(start);
-            String letters = phoneMap.get(digit);
-            int length = letters.length();
-            for (int i = 0; i < length; i++) {
-                sb.append(letters.charAt(i));
-                backtrack(digits, res, start + 1, sb);
-                sb.deleteCharAt(start);
-            }
+            return;
+        }
+        char digit = digits.charAt(start);
+        String letters = phoneMap.get(digit);
+        int length = letters.length();
+        for (int i = 0; i < length; i++) {
+            sb.append(letters.charAt(i));
+            backtrack(digits, res, start + 1, sb);
+            sb.deleteCharAt(start);
         }
     }
-
 }
 //leetcode submit region end(Prohibit modification and deletion)
