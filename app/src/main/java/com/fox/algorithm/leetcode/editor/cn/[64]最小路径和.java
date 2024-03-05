@@ -36,6 +36,8 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     //动态规划
+    //dp[i][j] 表示 在i,j处 最小的路径和
+    //因为只能下移和右移 那么左侧和上面哪个小就从哪走
     //动态转移方程 dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
     //第一行和第一列的数据 依次叠加
     public int minPathSum(int[][] grid) {

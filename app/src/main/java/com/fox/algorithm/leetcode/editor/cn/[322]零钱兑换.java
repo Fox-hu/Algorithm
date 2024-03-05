@@ -43,6 +43,8 @@ import java.util.Arrays;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+    //动态规划
+    //这里的dp[i]只得是目标为i时 最少能用的硬币数目
     public int coinChange(int[] coins, int amount) {
         int max = amount + 1;
         int[] dp = new int[max];
@@ -52,6 +54,9 @@ class Solution {
             for (int coin : coins) {
                 //金额值大于当前硬币面额值时 才进行更新 否则无意义
                 if (i >= coin) {
+                    //当前遍历的硬币币值是coin 那么我只需要知道dp[i-coin]就行
+                    //那么dp[i] = dp[i-coin]+1
+                    //因为币值有很多种 需要筛出最小数目的
                     dp[i] = Math.min(dp[i], dp[i - coin] + 1);
                 }
             }
