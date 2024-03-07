@@ -24,9 +24,9 @@ package com.fox.algorithm.leetcode.editor.cn;
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     //使用亦或操作 亦或有以下3个性质
-    //任何数和 0 做异或运算，结果仍然是原来的数，即 a⊕0=a。
-    //任何数和其自身做异或运算，结果是 0，即 a⊕a=0。
-    //异或运算满足交换律和结合律，即 a⊕b⊕a=b⊕a⊕a=b⊕(a⊕a)=b⊕0=b。
+    //任何数和0做异或操作，结果仍然是原来的数，即x ^ 0 = x。
+    //任何数和其自身做异或操作，结果是0，即x ^ x = 0。
+    //异或操作满足交换律和结合律，即x ^ y = y ^ x和(x ^ y) ^ z = x ^ (y ^ z)。
     public int singleNumber(int[] nums) {
         int single = 0;
         for (int num : nums) {
