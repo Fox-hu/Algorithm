@@ -55,7 +55,29 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int findDuplicate(int[] nums) {
+        //数组的范围是n+1 如果没有重复的数字 那么一直进行nums[nums[index]] 最终会数组越界
+        //如果数组中有重复的数 那么nums[nums[index]]将可以一直进行下去
+        //可以将其类比为链表中有环 那么问题就可以被转换为 找到链表中环的入口
+        //同问题142
+        if (nums.length == 1) {
+            return nums[0];
+        }
+        int slow = 0, fast = 0;
+        slow = nums[slow];
+        fast = nums[nums[fast]];
+        //因为确定有环 那么这个不会死循环
+        while (fast != slow) {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        }
 
+        int pre1 = 0;
+        int pre2 = slow;
+        while (pre2 != pre1) {
+            pre1 = nums[pre1];
+            pre2 = nums[pre2];
+        }
+        return pre1;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
