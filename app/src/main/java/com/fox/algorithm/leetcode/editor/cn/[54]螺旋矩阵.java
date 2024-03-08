@@ -47,20 +47,24 @@ class Solution {
             for (int i = left; i <= right; i++) {
                 res.add(matrix[upper][i]);
             }
+            //上界下移 如果碰撞则说明已结束
             if (++upper > down) break;
 
             for (int i = upper; i <= down; i++) {
                 res.add(matrix[i][right]);
             }
+            //右界左移
             if (--right < left) break;
 
             for (int i = right; i >= left; i--) {
                 res.add(matrix[down][i]);
             }
+            //下界上移
             if (--down < upper) break;
             for (int i = down; i >= upper; i--) {
                 res.add(matrix[i][left]);
             }
+            //左界右移
             if(++left>right) break;
         }
         return res;
