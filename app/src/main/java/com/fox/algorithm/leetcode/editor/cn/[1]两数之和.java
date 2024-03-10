@@ -51,6 +51,8 @@ import java.util.HashMap;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+    //使用hashmap进行记录
+    //hashmap中key为值，value为这个值的索引
     public int[] twoSum(int[] nums, int target) {
         HashMap<Integer, Integer> hashMap = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {

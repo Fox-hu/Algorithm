@@ -44,6 +44,9 @@ import java.util.Map;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+    //排序后使用哈希进行存取
+    //字母异位词 即代表字符串排序后一致，根据该特性
+    //可以将所有字符串先排序 后使用哈希表以此字符串为key，list<String>为value，将相同key的字符串存到同一个list中
     public List<List<String>> groupAnagrams(String[] strs) {
         Map<String,List<String>> map = new HashMap<>();
         for (String str : strs) {
@@ -51,7 +54,9 @@ class Solution {
             Arrays.sort(chars);
             String key = new String(chars);
             List<String> list = map.getOrDefault(key, new ArrayList<>());
+            //注意 这里存的是str 不是key
             list.add(str);
+            //这里需要再次put 因为如果map中没有 会返回new ArrayList 这个时候map是没有的
             map.put(key,list);
         }
         return new ArrayList<List<String>>(map.values());

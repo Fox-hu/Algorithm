@@ -46,10 +46,12 @@ class Solution {
         //如果set中有num+1 那么继续去找num+2\3...n 找到最长长度
         //更新循环的最大长度 遍历结束时 即可得出最大长度
         for (Integer num : set) {
+            //如果一个数num在集合中，而num-1也在集合中，那么num就不是连续序列的起始点
+            //所以这里只检查 num在集合中，而num-1不在集合中的数字
             if (!set.contains(num - 1)) {
                 int currentNum = num;
                 int currentSize = 1;
-
+                //这里的currentNum每次遍历都会自增
                 while (set.contains(currentNum + 1)) {
                     currentNum += 1;
                     currentSize += 1 ;
