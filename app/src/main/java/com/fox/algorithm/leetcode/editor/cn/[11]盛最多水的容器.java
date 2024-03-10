@@ -41,10 +41,13 @@
 class Solution {
     public int maxArea(int[] height) {
         int i = 0, j = height.length - 1, res = 0;
+        //不用考虑等于 等于时面积为0
         while (i < j) {
             if (height[i] < height[j]) {
+                //如果左侧小于右侧 那么面积是  (j - i) * height[i] 左边界右移
                 res = Math.max(res, (j - i) * height[i++]);
             } else {
+                //反之那么面积是  (j - i) * height[j] 右边界左移
                 res = Math.max(res, (j - i) * height[j--]);
             }
         }

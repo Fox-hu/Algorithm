@@ -37,16 +37,15 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public void moveZeroes(int[] nums) {
-        if (nums == null) {
-            return;
-        }
         int j = 0;
+        //先将非0数字左移
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != 0) {
                 nums[j++] = nums[i];
             }
         }
-        for(;j<nums.length;j++){
+        //记录非0的个数 将后面所有数字置0
+        for (; j < nums.length; j++) {
             nums[j] = 0;
         }
     }
