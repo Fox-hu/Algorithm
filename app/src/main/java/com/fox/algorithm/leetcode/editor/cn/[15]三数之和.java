@@ -58,11 +58,6 @@ import java.util.List;
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> ret = new ArrayList<>();
-        //小于3个 不存在
-        if (nums == null || nums.length < 3) {
-            return ret;
-        }
-        //最小值都>0 不存在
         Arrays.sort(nums);
         for (int i = 0; i < nums.length; i++) {
             //如果当前数字大于0，则三数之和一定大于0，所以结束循环
@@ -73,28 +68,28 @@ class Solution {
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
+            //这里的left是从i后一位开始取值 i是3个中的最小值
             int l = i + 1;
             int r = nums.length - 1;
             while (l < r) {
                 int sum = nums[i] + nums[l] + nums[r];
                 if (sum == 0) {
                     //记录符合的结果 同时过滤掉重复的l和r 有两种重复情况
-                    //当 nums[l] == nums[l + 1]时l后移
-                    //当 nums[r] == nums[r - 1]时r前移
                     ret.add(Arrays.asList(nums[i], nums[l], nums[r]));
+                    //当 nums[l] == nums[l + 1]时l后移
                     while (l < r && nums[l] == nums[l + 1]) {
                         l++;
                     }
+                    //当 nums[r] == nums[r - 1]时r前移
                     while (l < r && nums[r] == nums[r - 1]) {
                         r--;
                     }
+                    //计算出一个解后 l和r同时移动到下一个候选项
                     l++;
                     r--;
-                }
-                else if (sum > 0) {
+                } else if (sum > 0) {
                     r--;
-                }
-                else if (sum < 0) {
+                } else if (sum < 0) {
                     l++;
                 }
             }

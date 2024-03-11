@@ -71,6 +71,8 @@ class Solution {
             scount[s.charAt(i+plen)-'a'] +=1;
 
             if(Arrays.equals(pcount,scount)){
+                //循环从0开始 所以这里是i+1
+                //如abab和ab ab是ab的异位词 然后去掉第一个a 添加第二个a 变成了ba 这里的索引就是1
                 ret.add(i+1);
             }
         }
