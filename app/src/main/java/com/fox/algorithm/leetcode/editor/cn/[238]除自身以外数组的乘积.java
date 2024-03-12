@@ -53,8 +53,9 @@ class Solution {
         }
         int temp = 1;
         for (int k = nums.length - 2; k >= 0; k--) {
+            //右边的乘积计算
             temp = temp * nums[k + 1];
-            //此时的ret乘以右边的乘积 即为左右部分相乘 所求的结果
+            //左右部分相乘 所求的结果
             ret[k] = temp * ret[k];
         }
         return ret;

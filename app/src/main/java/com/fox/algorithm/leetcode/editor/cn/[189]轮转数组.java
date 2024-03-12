@@ -53,9 +53,13 @@ class Solution {
         int n = nums.length;
         int[] ret = new int[n];
         for (int i = 0; i < n; i++) {
+            //待确定是新数组的索引
             ret[(i + k) % n] = nums[i];
         }
-        System.arraycopy(ret, 0, nums, 0, n);
+        //结果写回
+        for (int i = 0; i < n; i++) {
+            nums[i] = ret[i];
+        }
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

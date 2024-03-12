@@ -56,6 +56,7 @@ class Solution {
 
         for (int i = 1; i < nums.length; i++) {
             //注意 这里是dp[i-1] 而不是nums[i-1]
+            //状态转移方程是根据dp[i-1] 而不是根据nums[i]来判断
             if (dp[i - 1] < 0) {
                 dp[i] = nums[i];
             } else {

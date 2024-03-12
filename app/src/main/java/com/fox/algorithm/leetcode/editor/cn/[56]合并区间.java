@@ -46,11 +46,14 @@ class Solution {
         int index = -1;
         for (int[] array : intervals) {
             if (index == -1 || array[0] > ret[index][1]) {
+                //这里是++index 放入下一个位置
                 ret[++index] = array;
             } else {
+                //这里要比较两数组右侧的较大值 如[1,6],[2,5] ->[1,6]
                 ret[index][1] = Math.max(ret[index][1], array[1]);
             }
         }
+        //这里是index+1 试想只有一个数组时 也是要复制长度为1的
         return Arrays.copyOf(ret, index + 1);
     }
 }
