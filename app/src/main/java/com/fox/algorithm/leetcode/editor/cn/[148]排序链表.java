@@ -44,7 +44,10 @@ package com.fox.algorithm.leetcode.editor.cn;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Definition for singly-linked list.
@@ -59,9 +62,12 @@ import java.util.Arrays;
 class Solution {
     //偷懒解法 将链表转为数组 排序后重新构造链表
     public ListNode sortList(ListNode head) {
+        //这里不能用arraylist 没办法排序
         if (head == null || head.next == null) {
             return head;
         }
+        List<Integer> list = new ArrayList<>();
+        Collections.sort(list);
         ListNode cur = head;
         int length = getListNodeSize(cur);
         int[] arrays = new int[length];

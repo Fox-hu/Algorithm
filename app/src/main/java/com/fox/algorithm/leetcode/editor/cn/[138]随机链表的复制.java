@@ -92,6 +92,7 @@ class Solution {
         Map<Node, Node> map = new HashMap<>();
         Node cur = head;
         while (cur != null) {
+            //这里的value 是新创建的 值是key的val，next和random待填充
             map.put(cur, new Node(cur.val));
             cur = cur.next;
         }
