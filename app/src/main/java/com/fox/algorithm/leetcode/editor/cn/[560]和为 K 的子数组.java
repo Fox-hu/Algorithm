@@ -42,11 +42,14 @@ class Solution {
         HashMap<Integer, Integer> map = new HashMap<>();
         //数字0出现1次 插入map中
         map.put(0, 1);
-        for (int i = 0; i < nums.length; i++) {
-            sum += nums[i];
+        for (int num : nums) {
+            sum += num;
             //sum(j) - sum(i) = k 说明找到了
             if (map.containsKey(sum - k)) {
-                //注意这里 加的是次数 代表的是从i->j可达成的路径总数？
+                //注意这里 加的是次数 如果前i个数的和为sum
+                //那么如果能找到前j个数的和为sum-k的话(j<i) 那么sum-k出现的次数就是目标解中的子集
+                //例如 [1,2,3,1,2,3] k=6 假设i = 5,num = 2,此时 sum = 9 那么sum - k = 3
+                //map.get(sum - k) = 2 说明有两个路径可以到达 也就是[1,2]和[3] 分别和[1,2]组合可以得到k
                 count += map.get(sum - k);
             }
             //记录本次的数字和次数
