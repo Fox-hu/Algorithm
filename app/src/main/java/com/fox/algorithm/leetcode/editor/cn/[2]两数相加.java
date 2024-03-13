@@ -63,7 +63,7 @@ class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode pre = new ListNode(0);
         ListNode head = pre;
-
+        //进位是每次计算都要的 用于下一轮计算 所以放在循环外面
         int carry = 0;
         while (l1 != null || l2 != null) {
             int val1 = l1 != null ? l1.val : 0;
@@ -82,6 +82,7 @@ class Solution {
                 l2 = l2.next;
             }
         }
+        //最后一位的进位 不要忘了
         if (carry == 1) {
             pre.next = new ListNode(1);
         }

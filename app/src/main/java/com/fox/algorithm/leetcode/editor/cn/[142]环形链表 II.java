@@ -80,8 +80,10 @@ public class Solution {
     //如何知道slow刚好走了a步？ 我们将fast从head开始，和slow指针一起 每次走1步，相遇时刚好就是a步
 
     public ListNode detectCycle(ListNode head) {
+        //这里的fast和slow都是从head开始的 和上一题不一样 fast不是从head.next开始的
         ListNode fast = head;
         ListNode slow = head;
+        //这个循环既要判断是否有环 又要找到相遇的节点 内部有程序退出条件以及成环的条件
         while (true) {
             if (fast == null || fast.next == null) {
                 return null;
@@ -93,7 +95,7 @@ public class Solution {
             }
         }
         fast = head;
-        //上一个循环以及判断是否有环 这里不会是死循环
+        //上一个循环已经判断了是否有环 这里不会是死循环
         while (fast != slow) {
             slow = slow.next;
             fast = fast.next;

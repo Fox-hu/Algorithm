@@ -55,6 +55,7 @@ class Solution {
     //终止条件：head 为空指针或者 next 为空指针，也就是当前无节点或者只有一个节点，无法进行交换
     public ListNode swapPairs(ListNode head) {
         if(head == null || head.next == null){
+            //返回的是head 不是null
             return head;
         }
         ListNode next = head.next;

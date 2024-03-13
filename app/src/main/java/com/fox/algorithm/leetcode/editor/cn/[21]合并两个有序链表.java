@@ -56,15 +56,9 @@ class Solution {
     //当一个节点被添加到结果里之后，将对应链表中的节点向后移一位。
     //当一个链表被添加完后 直接将另一个链表的剩余部分全部添加过去
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        if (list1 == null) {
-            return list2;
-        }
-        if (list2 == null) {
-            return list1;
-        }
         ListNode preHead = new ListNode(-1);
         ListNode head = preHead;
-
+        //这里的&& 是因为只要有一个链表为空，就不需要再比较了
         while (list1 != null && list2 != null) {
             if (list1.val >= list2.val) {
                 preHead.next = list2;

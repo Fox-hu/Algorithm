@@ -64,6 +64,7 @@ class Solution {
         for (int i = 1; i < length - n + 1; i++) {
             cur = cur.next;
         }
+        //删除节点 注意是cur.next 不是cur
         cur.next = cur.next.next;
         return dummy.next;
     }
