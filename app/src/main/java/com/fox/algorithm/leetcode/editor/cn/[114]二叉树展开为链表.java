@@ -68,6 +68,7 @@ class Solution {
     //2. 其次将根节点的右子树变成链表
     //3. 最后将变成链表的右子树放在变成链表的左子树的最右边
     public void flatten(TreeNode root) {
+        //不要沉浸在递归的细节中 主要考虑递归的输入和输出 以及递归的终止条件
         if (root == null) {
             return;
         }

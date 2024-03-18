@@ -66,19 +66,15 @@ class Solution {
         return list;
     }
 
+    //核心在于 每一层都必须从右到左收集一个元素
     //采用根-右-左的方式遍历 可以保证每层第一个访问的元素就是最右侧的节点
     //depth代表的层数 当层数 = 已收集元素的大小
     //那么就是代表当前层数没有收集最右侧元素 需要将当前的元素放入结果列表中
     private void dfs(TreeNode root, int depth) {
-        if (root == null) {
-            return;
-        }
-        if (list.size() == depth) {
-            list.add(root.val);
-        }
-        depth++;
-        dfs(root.right, depth);
-        dfs(root.left, depth);
+        if (root == null) return;
+        if (list.size() == depth) list.add(root.val);
+        dfs(root.right, depth + 1);
+        dfs(root.left, depth + 1);
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

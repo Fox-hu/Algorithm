@@ -69,8 +69,10 @@ class Solution {
         if (root != null) {
             queue.add(root);
         }
-
+        //每次while循环都是一层的遍历 一层的遍历完当前层的总结点数
+        //所以是while+for的形式 while确定层数 for确定当前层的节点数
         while (!queue.isEmpty()) {
+            //确定当前层的遍历数 加入到同一层的list中
             List<Integer> temp = new ArrayList<>();
             int size = queue.size();
             for (int i = 0; i < size; i++) {

@@ -61,6 +61,8 @@ class Solution {
         return dfs(nums, 0, nums.length - 1);
     }
 
+    //根据数组恢复二叉树 看到有序数组 考虑二分法
+    //看到搜索二叉树 考虑中序遍历
     private TreeNode dfs(int[] nums, int low, int hi) {
         if (low > hi) {
             return null;

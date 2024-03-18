@@ -63,8 +63,10 @@ class Solution {
     //注意这里的用例 小于Integer.MIN_VALUE 所以注意要使用 Integer.MIN_VALUE
     long pre = Integer.MIN_VALUE;
     public boolean isValidBST(TreeNode root) {
+        //看到搜索二叉树就要想到中序遍历 当前遍历的节点的值一定大于上一个节点的值
         if(root == null) return true;
         if(!isValidBST(root.left)) return false;
+        //先比较后更新
         if(root.val <= pre) return false;
         pre = root.val;
         return isValidBST(root.right);
