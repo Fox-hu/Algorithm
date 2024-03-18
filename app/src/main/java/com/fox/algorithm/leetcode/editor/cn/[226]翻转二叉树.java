@@ -62,15 +62,14 @@ class Solution {
     //需要使用一个新node来接收左右节点
     //不能使用原地递归 因为如果左侧已经反转完成 那么再使用左侧的赋值到右侧就不对
     public TreeNode invertTree(TreeNode root) {
-        if (root == null) {
-            return null;
-        }
         //这里不能使用 root.left = invertTree(root.right);root.right = invertTree(root.left)
         //因为在第一句 root.left = invertTree(root.right)后 root.left就已经被改变了
-        TreeNode node = new TreeNode(root.val);
-        node.left = invertTree(root.right);
-        node.right = invertTree(root.left);
-        return node;
+        if(root == null) return null;
+        TreeNode left  = invertTree(root.right);
+        TreeNode right = invertTree(root.left);
+        root.left = left;
+        root.right = right;
+        return root;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
