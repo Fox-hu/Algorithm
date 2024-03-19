@@ -85,7 +85,7 @@ class Solution {
         int res = 0;  //res记录路径数量。
         curSum += node.val;  //curSum记录前缀和，遍历到当前节点的时候就加上这个节点的值。
 
-        res += prefixMap.getOrDefault(curSum - target, 0);  //res就是路径数量。curSum是根节点到当前节点的前缀和，如果哈希表中能找到之前存在过路径的前缀和为curSum - target，说明可以找到value条路径使其路径和为target。
+        res = prefixMap.getOrDefault(curSum - target, 0);  //res就是路径数量。curSum是根节点到当前节点的前缀和，如果哈希表中能找到之前存在过路径的前缀和为curSum - target，说明可以找到value条路径使其路径和为target。
         prefixMap.put(curSum, prefixMap.getOrDefault(curSum, 0) + 1);  //把当前节点的前缀和也加入到哈希表中，如果已经存在了就给value + 1
 
         int left = recur(node.left, curSum);  //再去遍历其左右子树继续记录前缀和并找可行路径。

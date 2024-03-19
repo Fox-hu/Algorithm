@@ -59,7 +59,7 @@ class Solution {
     //p和 q在 root的子树中，且分列 root的 异侧（即分别在左、右子树中）；
     //p=root ，且 q 在 root 的左或右子树中；
     //q=root ，且 p 在 root 的左或右子树中；
-    //使用递归
+    //使用递归 直接找node=q和node=p的场合
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if(root == null || root == p || root == q){
             //如果root == p || root == q 那么不会是下一层的节点了 返回这一层的数
