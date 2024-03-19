@@ -36,34 +36,36 @@
 // Related Topics 数组 回溯 👍 2819 👎 0
 
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Deque;
 import java.util.List;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     //采用回溯算法 循环+递归+状态恢复
     public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
-        List<Integer> output = new ArrayList<>();
-        for (int num : nums) {
-            output.add(num);
-        }
-        int n = nums.length;
-        backtrack(n, output, res, 0);
+        List<List<Integer>> res = new ArrayList();
+        Deque<Integer> deque = new ArrayDeque();
+        dfs(res, deque, nums);
         return res;
     }
 
-    private void backtrack(int n, List<Integer> output, List<List<Integer>> res, int start) {
-        if (start == n) {
-            //当start == n 时 说明长度够了 收集结果
-            //这里有坑 因为java引用的关系 需要重新构建list
-            res.add(new ArrayList<>(output));
+    private void dfs(List<List<Integer>> res, Deque<Integer> deque, int[] nums) {
+        //当收集到长度符合要求的队列后 退出递归
+        if (nums.length == deque.size()) {
+            //java引用传递的特性 需要重新新建对象
+            res.add(new ArrayList(deque));
+            return;
         }
-        for (int i = start; i < n; i++) {
-            Collections.swap(output, i, start);
-            backtrack(n, output, res, start + 1);
-            Collections.swap(output, start, i);
+        for (int i = 0; i < nums.length; i++) {
+            //回溯跳过
+            if (deque.contains(nums[i])) continue;
+            //添加操作
+            deque.addLast(nums[i]);
+            dfs(res, deque, nums);
+            //撤销操作
+            deque.removeLast();
         }
     }
 }
