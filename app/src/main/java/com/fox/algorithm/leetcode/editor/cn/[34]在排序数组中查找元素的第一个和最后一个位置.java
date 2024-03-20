@@ -59,6 +59,7 @@ class Solution {
             int mid = lo + (hi - lo) / 2;
             if (nums[mid] == target) {
                 first = mid;
+                //如果是普通二分法 就此结束 这里的意思是找到了左边界以后 继续向左边找 看看能不能找到同样的值
                 hi = mid - 1;
             } else if (nums[mid] < target) {
                 lo = mid + 1;
@@ -76,6 +77,7 @@ class Solution {
             int mid = lo + (hi - lo) / 2;
             if (nums[mid] == target) {
                 last = mid;
+                //如果是普通二分法 就此结束 这里的意思是找到了右边界以后 继续向右边找 看看能不能找到同样的值
                 lo = mid + 1;
             } else if (nums[mid] < target) {
                 lo = mid + 1;

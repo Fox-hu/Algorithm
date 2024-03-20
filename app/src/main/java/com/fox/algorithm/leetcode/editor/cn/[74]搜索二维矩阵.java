@@ -46,6 +46,7 @@ class Solution {
         while (lo <= hi) {
             int mid = lo + (hi - lo) / 2;
             //核心在于这句话 将二维的转为一维的 注意 横坐标是mid/n 纵坐标是mid%n
+            //是除以列数和取列数的模型
             int num = matrix[mid / n][mid % n];
             if (num == target) {
                 return true;
