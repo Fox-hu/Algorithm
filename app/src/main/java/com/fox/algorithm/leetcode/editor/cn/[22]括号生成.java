@@ -51,13 +51,9 @@ class Solution {
         }
         //剪枝 右边剩余可以使用的括号数量一定得在严格大于左边剩余的数量的时候，才可以产生分支
         if(left > right) return;
-        if (left > 0) {
-            //利用java中string的特性 无需增加和恢复
-            backtrack(curStr+"(", left - 1, right);
-        }
-        if (right > 0) {
-            backtrack(curStr+")", left, right - 1);
-        }
+        //利用java中string的特性 无需增加和恢复
+        if (left > 0) backtrack(curStr+"(", left - 1, right);
+        if (right > 0) backtrack(curStr+")", left, right - 1);
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

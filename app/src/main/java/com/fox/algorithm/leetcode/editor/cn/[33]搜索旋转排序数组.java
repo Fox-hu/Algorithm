@@ -55,13 +55,13 @@ class Solution {
                 return mid;
             }
             if (nums[0] > target) {
-                //在右半段的区间中 将右区间左侧全部置为Integer.MIN_VALUE
+                //在右半段的区间中 将右区间的左侧一步一步置为Integer.MIN_VALUE
                 //注意这个等号 没有等号case[3,1] 1 不过
                 if (nums[mid] >= nums[0]) {
                     nums[mid] = Integer.MIN_VALUE;
                 }
             } else {
-                //在左半段区间中 将左区间的右侧全部置为Integer.MAX_VALUE
+                //在左半段区间中 将左区间的右侧一步一步置为Integer.MAX_VALUE
                 if (nums[mid] < nums[0]) {
                     nums[mid] = Integer.MAX_VALUE;
                 }

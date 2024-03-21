@@ -44,7 +44,9 @@ class Solution {
 
     private void backtrack(int[] nums, List<List<Integer>> res, ArrayList<Integer> temp,
             int start) {
+        //不同于全排列 没有数量限制 每个数量都行
         res.add(new ArrayList<>(temp));
+        //注意是从前面传入的start开始 代表了不同的遍历起始
         for (int i = start; i < nums.length; i++) {
             temp.add(nums[i]);
             backtrack(nums, res, temp, i + 1);

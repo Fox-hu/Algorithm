@@ -95,6 +95,7 @@ class Solution {
             || backtrack(board, word, row, col + 1, index + 1, visited)) {
             return true;
         }
+        //回溯 一定要撤回 否则这个位置就不能再次访问了
         visited[row][col] = false;
         return false;
     }
