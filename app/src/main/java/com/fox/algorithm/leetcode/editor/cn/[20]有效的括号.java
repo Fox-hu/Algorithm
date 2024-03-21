@@ -43,16 +43,14 @@
 // Related Topics 栈 字符串 👍 4354 👎 0
 
 
-import java.util.Deque;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
+import java.util.Stack;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
 
-    //如果遇到左括号 就入栈
-    //如果遇到右括号 弹出栈顶 两者对应 则抵消
+    // key是右括号 value是左括号
     private final Map<Character, Character> pairs = new HashMap() {{
         put(')', '(');
         put(']', '[');
@@ -60,15 +58,13 @@ class Solution {
     }};
 
     public boolean isValid(String s) {
-        Deque<Character> stack = new LinkedList<>();
+        Stack<Character> stack = new Stack<>();
         for (char ch : s.toCharArray()) {
+            //如果遇到右括号 弹出栈顶 两者对应 则抵消
             if (pairs.containsKey(ch)) {
-                //右侧括号
-                if (stack.isEmpty() || stack.pop() != pairs.get(ch)) {
-                    return false;
-                }
+                if (stack.isEmpty() || stack.pop() != pairs.get(ch)) return false;
             } else {
-                //左侧括号
+                //如果遇到左括号 就入栈
                 stack.push(ch);
             }
         }

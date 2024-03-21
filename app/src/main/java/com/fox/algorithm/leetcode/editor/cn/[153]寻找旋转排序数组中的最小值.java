@@ -65,18 +65,18 @@ class Solution {
         //根据可能的情况 我们的二分策略就是
         //如果中值 < 右值，则最小值在左半边，可以收缩右边界。
         //如果中值 > 右值，则最小值在右半边，可以收缩左边界。
-        int lo = 0, hi = nums.length - 1;
-        //这里不能用等号 因为最终会有lo=hi的情况 那么就会导致无限循环
-        while (lo < hi) {
-            int mid = lo + (hi - lo) / 2;
-            if (nums[mid] > nums[hi]) {
-                lo = mid + 1;
-            } else {
-                hi = mid;
+        int left = 0;
+        int right = nums.length - 1;                /* 左闭右闭区间，如果用右开区间则不方便判断右值 */
+        while (left < right) {                      /* 循环不变式，如果left == right，则循环结束 */
+            int mid = left + (right - left) / 2;    /* 地板除，mid更靠近left */
+            //这里判断中值和右值的判断 如果大于 那么最小值在右半边 且不会是中值
+            if (nums[mid] > nums[right]) {          /* 中值 > 右值，最小值在右半边，收缩左边界 */
+                left = mid + 1;                     /* 因为中值 > 右值，中值肯定不是最小值，左边界可以跨过mid */
+            } else if (nums[mid] < nums[right]) {   /* 明确中值 < 右值，最小值在左半边，收缩右边界 */
+                right = mid;                        /* 因为中值 < 右值，中值也可能是最小值，右边界只能取到mid处 */
             }
         }
-        //while循环后 lo=hi 返回哪个都行
-        return nums[lo];
+        return nums[left];    /* 循环结束，left == right，最小值输出nums[left]或nums[right]均可 */
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
