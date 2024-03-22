@@ -79,6 +79,7 @@ class Solution {
                 last = mid;
                 //如果是普通二分法 就此结束 这里的意思是找到了右边界以后 继续向右边找 看看能不能找到同样的值
                 lo = mid + 1;
+                //注意这里是互斥的 找到target后就要进入下一个循环
             } else if (nums[mid] < target) {
                 lo = mid + 1;
             } else {

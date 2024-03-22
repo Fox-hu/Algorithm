@@ -51,15 +51,13 @@ class Solution {
                 map.put(num, 1);
             }
         }
+        //这里传递的是一个比较器 每次remove时 就会remove 掉 map.get最小的值
         Queue<Integer> queue = new PriorityQueue<>((o1, o2) -> map.get(o1) - map.get(o2));
         for (Integer key : map.keySet()) {
-            if (queue.size() < k) {
-                queue.add(key);
-                //如果value > 优先级队列最小值 更新优先级队列数据
-                //这里是对map中value的值进行比较
-            } else if (map.get(key) > map.get(queue.peek())) {
+            //入队 如果数量超过k个 则进来一个就去掉一个 去掉出现频率最小的
+            queue.add(key);
+            if(queue.size()>k){
                 queue.remove();
-                queue.add(key);
             }
         }
         int[] res = new int[queue.size()];
