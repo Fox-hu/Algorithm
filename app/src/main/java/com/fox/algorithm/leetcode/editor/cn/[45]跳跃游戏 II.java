@@ -52,7 +52,7 @@ class Solution {
         int border = 0;
         // 所用步数
         int step = 0;
-        // 这里注意 因为题目保证一定能跳到nums[n-1]，这里遍历的右边界是i<nums.length-1
+        // 这里注意 因为题目保证一定能跳到nums[n-1]，最后一个数字不用遍历 要不会出错
         for (int i = 0; i < nums.length - 1; i++) {
             //更新前i个元素 能跳的最远距离
             max = Math.max(max, i + nums[i]);

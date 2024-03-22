@@ -37,14 +37,15 @@ import java.util.Queue;
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int findKthLargest(int[] nums, int k) {
-        // 采用优先队列 默认是
+        // 采用优先队列 默认是由小到大排序
+        // 所以依次添加元素到队列中,当队列中超过k个后 弹出最上面的值 那么顶部的值就是第k个最大元素
         Queue<Integer> pq = new PriorityQueue<>();
         for (int num : nums) {
-            pq.offer(num);
+            pq.add(num);
             //每次添加元素后，检查队列的大小是否超过了k。如果超过了k，就会移除队列头部的元素（也就是当前队列中最小的元素）。
             //这样，队列中始终保持着nums数组中的前k大的元素，且队列头部是这k个元素中最小的
             if (pq.size() > k) {
-                pq.poll();
+                pq.remove();
             }
         }
         return pq.peek();

@@ -56,12 +56,14 @@ class Solution {
             if (queue.size() < k) {
                 queue.add(key);
                 //如果value > 优先级队列最小值 更新优先级队列数据
+                //这里是对map中value的值进行比较
             } else if (map.get(key) > map.get(queue.peek())) {
                 queue.remove();
                 queue.add(key);
             }
         }
         int[] res = new int[queue.size()];
+        //这里不能使用for循环 因为queue的数量会有变化
         int i = 0;
         while (!queue.isEmpty()) {
             res[i++] = queue.remove();

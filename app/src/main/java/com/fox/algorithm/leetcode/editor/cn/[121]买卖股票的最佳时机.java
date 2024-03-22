@@ -44,14 +44,11 @@ class Solution {
     //在非最低买入时 计算卖出-最低买入的收益
     //记录收益最大值
     public int maxProfit(int[] prices) {
-        int maxProfit = 0;
-        int minIndex = 0;
-        for (int i = 0; i < prices.length; i++) {
-            if (prices[minIndex] > prices[i]) {
-                minIndex = i;
-            } else if (prices[i] - prices[minIndex] > maxProfit) {
-                maxProfit = prices[i] - prices[minIndex];
-            }
+        //cost一定要在第一天被替换掉 所以选择最大值
+        int maxProfit = 0 , cost = Integer.MAX_VALUE;
+        for (int price : prices) {
+            cost = Math.min(price,cost);
+            maxProfit = Math.max(maxProfit,price-cost);
         }
         return maxProfit;
     }

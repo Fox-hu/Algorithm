@@ -41,7 +41,7 @@ class Solution {
         //max 代表目前能跳跃到的最大距离
         int max = 0;
         for (int i = 0; i < nums.length; i++) {
-            // 这行的意思是 如果i已经超过目前最大能跳跃的距离了 那说明跳不到i处 返回false
+            // 这行的意思是 能跳到的最大距离都够不到i 那说明跳不到i处 返回false
             if (i > max) return false;
             // 如果能跳到 更新max的大小 （i+num[i]代表i处起跳的最远距离）
             max = Math.max(max, i + nums[i]);
