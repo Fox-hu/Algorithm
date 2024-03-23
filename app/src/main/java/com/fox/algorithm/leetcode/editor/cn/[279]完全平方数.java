@@ -40,9 +40,10 @@ class Solution {
         int[] dp = new int[n + 1];
         dp[0] = 0;
         for (int i = 1; i <= n; i++) {
-            dp[i] = i; //最差的情况就全部是1组成
+            //最差的情况就全部是1组成 这句话要放到外循环 由内循环不断刷新最小值
+            dp[i] = i;
             for (int j = 1; i - j * j >= 0; j++) {
-                //
+                //比如 12 就是 12-1 12-4 12-9中的最小值 +1
                 dp[i] = Math.min(dp[i], dp[i - j * j] + 1);
             }
         }

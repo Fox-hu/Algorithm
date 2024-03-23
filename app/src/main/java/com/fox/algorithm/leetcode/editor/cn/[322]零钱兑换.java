@@ -48,6 +48,8 @@ class Solution {
     public int coinChange(int[] coins, int amount) {
         int max = amount + 1;
         int[] dp = new int[max];
+        //这里全部填充amount+1的原因是 后面需要进行min的操作 如果是0会有问题
+        //所以填充一个不可能的大值 用于min操作和最后有效判断
         Arrays.fill(dp, max);
         dp[0] = 0; //这里的0位置要放在后面
         for (int i = 1; i <= amount; i++) {

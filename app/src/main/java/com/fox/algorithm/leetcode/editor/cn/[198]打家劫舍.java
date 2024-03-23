@@ -41,10 +41,12 @@ class Solution {
         int length = nums.length;
         int[] dp = new int[length + 1];
         dp[0] = 0;
+        //第0个房间 能偷到的最大值
         dp[1] = nums[0];
         for (int i = 2; i <= length; i++) {
             // dp[i] 代表着从0到i-1个房间内 最大的收益
             // 那么dp[i]的取值由dp[i-1]以及dp[i-2]+nums[i-1]中较大的值确定
+            // 注意这里是从0 到 i-1个房间 所以是nums[i-1]
             dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i-1]);
         }
 
