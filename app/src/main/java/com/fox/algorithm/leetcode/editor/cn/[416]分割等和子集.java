@@ -40,22 +40,33 @@ class Solution {
         for (int num : nums) {
             sum += num;
         }
+        // 如果是奇数，就不符合要求
         if (sum % 2 == 1) {
             return false;
         }
         int target = sum / 2;
-        boolean[] dp = new boolean[target + 1];
+        boolean[][] dp = new boolean[len][target + 1];
+        //
         if (nums[0] <= target) {
-            dp[0] = true;
+            dp[0][0] = true;
         }
         for (int i = 1; i < len; i++) {
-            //注意这里是从后向前遍历 因为从前向后遍历 dp[j-nums[i]]会被改写
-            for (int j = target; j >= nums[i]; j--) {
-                if (dp[target]) return true;
-                dp[j] = dp[j] || dp[j - nums[i]];
+            for (int j = 0; j <= target; j++) {
+                // 直接从上一行先把结果抄下来，然后再修正
+                dp[i][j] = dp[i - 1][j];
+                //当前数字就能填充满 返回true
+                if (nums[i] == j) {
+                    dp[i][j] = true;
+                    continue;
+                }
+                //两种可能 不需要当前数字 也能填充满j
+                //没有当前数字num[i] 刚好填充到j-num[i]
+                if (j > nums[i]) {
+                    dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i]];
+                }
             }
         }
-        return dp[target];
+        return dp[len-1][target];
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

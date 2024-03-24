@@ -48,6 +48,7 @@ class Solution {
                 imin = imax;
                 imax = temp;
             }
+            //注意 这里是比较的num和min*num
             imin = Math.min(imin * num, num);
             imax = Math.max(imax * num, num);
             //这里还是阶段最大和总最大比 imin只做记录最小值

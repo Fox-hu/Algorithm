@@ -62,6 +62,7 @@ class Solution {
                 continue;
             }
             for (String word : wordDict) {
+                //s.startsWith(word, i)表示确实是这个word 而不是其他到达word
                 if (word.length() + i <= s.length() && s.startsWith(word, i)) {
                     dp[i + word.length()] = true;
                 }
