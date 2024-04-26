@@ -45,18 +45,14 @@ class Solution {
     //结果：       1*2*3*4  1*3*4   1*2*4  1*2*3*1
     public int[] productExceptSelf(int[] nums) {
         int[] ret = new int[nums.length];
-        //ret[n]此时代表的是第n个数的乘积是多少
         ret[0] = 1;
-        for (int i = 1; i < nums.length; i++) {
-            //左边的乘积计算
-            ret[i] = nums[i - 1] * ret[i - 1];
+        for(int i = 1;i<nums.length;i++){
+            ret[i] = ret[i-1] * nums[i-1];
         }
         int temp = 1;
-        for (int k = nums.length - 2; k >= 0; k--) {
-            //右边的乘积计算
-            temp = temp * nums[k + 1];
-            //左右部分相乘 所求的结果
-            ret[k] = temp * ret[k];
+        for(int j = nums.length-2;j>=0;j--){
+            temp = temp*nums[j+1];
+            ret[j] = temp*ret[j];
         }
         return ret;
     }

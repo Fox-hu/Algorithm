@@ -36,25 +36,17 @@ import java.util.Arrays;
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int[][] merge(int[][] intervals) {
-        //先将数组根据左端进行排序
-        //第一个数组可以直接放入ret中 随后循环比较数组
-        //如果当前区间的起始值 大于 ret数组中最后一个区间的结束值 说明不存在重叠 直接将当前区间添加到ret中 并递增index
-        //反之则说明存在重叠 更新ret最后区间的和当前遍历区间右端的较大值
-        //最后要再进行一次copy 因为ret最后可能会有空数组 需要排除
         int[][] ret = new int[intervals.length][2];
-        Arrays.sort(intervals, (v1, v2) -> v1[0] - v2[0]);
+        Arrays.sort(intervals,(v1,v2)-> v1[0]-v2[0]);
         int index = -1;
-        for (int[] array : intervals) {
-            if (index == -1 || array[0] > ret[index][1]) {
-                //这里是++index 放入下一个位置
-                ret[++index] = array;
-            } else {
-                //这里要比较两数组右侧的较大值 如[1,6],[2,5] ->[1,6]
-                ret[index][1] = Math.max(ret[index][1], array[1]);
+        for(int[] intArray:intervals){
+            if(index == -1 || intArray[0] > ret[index][1]){
+                ret[++index] = intArray;
+            }else{
+                ret[index][1] = Math.max(intArray[1],ret[index][1]);
             }
         }
-        //这里是index+1 试想只有一个数组时 也是要复制长度为1的
-        return Arrays.copyOf(ret, index + 1);
+        return Arrays.copyOf(ret,index+1);
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

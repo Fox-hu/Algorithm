@@ -50,15 +50,13 @@ class Solution {
     //共n个元素 第i个元素向右轮转k个 最终的index结果可以等价为（i+k）%n
     //最后将新数组拷贝到原数组即可
     public void rotate(int[] nums, int k) {
-        int n = nums.length;
-        int[] ret = new int[n];
-        for (int i = 0; i < n; i++) {
-            //待确定是新数组的索引
-            ret[(i + k) % n] = nums[i];
+        int length = nums.length;
+        int[] temp = new int[length];
+        for(int i=0;i<length;i++){
+            temp[(i+k)%length]= nums[i];
         }
-        //结果写回
-        for (int i = 0; i < n; i++) {
-            nums[i] = ret[i];
+        for(int i=0;i<length;i++){
+            nums[i] = temp[i];
         }
     }
 }

@@ -57,44 +57,28 @@ import java.util.List;
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> ret = new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(nums);
-        for (int i = 0; i < nums.length; i++) {
-            //如果当前数字大于0，则三数之和一定大于0，所以结束循环
-            if (nums[i] > 0) {
-                break;
-            }
-            //当nums[i] == nums[i - 1]时 结果是一样的 跳过遍历下一个
-            if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            }
-            //这里的left是从i后一位开始取值 i是3个中的最小值
-            int l = i + 1;
-            int r = nums.length - 1;
-            while (l < r) {
-                int sum = nums[i] + nums[l] + nums[r];
+        for(int i = 0;i<nums.length;i++){
+            if(nums[i]>0) break;
+            if(i>=1 && nums[i] == nums[i-1]) continue;
+            int left = i+1,right = nums.length-1;
+            while(left<right) {
+                int sum = nums[i] + nums[left] + nums[right];
                 if (sum == 0) {
-                    //记录符合的结果 同时过滤掉重复的l和r 有两种重复情况
-                    ret.add(Arrays.asList(nums[i], nums[l], nums[r]));
-                    //当 nums[l] == nums[l + 1]时l后移
-                    while (l < r && nums[l] == nums[l + 1]) {
-                        l++;
-                    }
-                    //当 nums[r] == nums[r - 1]时r前移
-                    while (l < r && nums[r] == nums[r - 1]) {
-                        r--;
-                    }
-                    //计算出一个解后 l和r同时移动到下一个候选项
-                    l++;
-                    r--;
-                } else if (sum > 0) {
-                    r--;
+                    res.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                    while (left < right && nums[left] == nums[left + 1]) left++;
+                    while (left < right && nums[right] == nums[right - 1]) right--;
+                    left++;
+                    right--;
                 } else if (sum < 0) {
-                    l++;
+                    left++;
+                } else {
+                    right--;
                 }
             }
         }
-        return ret;
+        return res;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

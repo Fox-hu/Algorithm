@@ -52,14 +52,12 @@ class Solution {
         for (String str : strs) {
             char[] chars = str.toCharArray();
             Arrays.sort(chars);
-            String key = new String(chars);
-            List<String> list = map.getOrDefault(key, new ArrayList<>());
-            //注意 这里存的是str 不是key
+            String temp = new String(chars);
+            List list = map.getOrDefault(temp,new ArrayList());
             list.add(str);
-            //这里需要再次put 因为如果map中没有 会返回new ArrayList 这个时候map是没有的
-            map.put(key,list);
+            map.put(temp,list);
         }
-        return new ArrayList<List<String>>(map.values());
+        return new ArrayList<>(map.values());
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

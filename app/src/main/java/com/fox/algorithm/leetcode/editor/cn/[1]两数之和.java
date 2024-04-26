@@ -1,6 +1,7 @@
 package com.fox.algorithm.leetcode.editor.cn;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target 的那 两个 整数，并返回它们的数组下标。
@@ -54,13 +55,13 @@ class Solution {
     //使用hashmap进行记录
     //hashmap中key为值，value为这个值的索引
     public int[] twoSum(int[] nums, int target) {
-        HashMap<Integer, Integer> hashMap = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            int ret = target - nums[i];
-            if (hashMap.containsKey(ret)) {
-                return new int[]{hashMap.get(ret), i};
+        Map<Integer,Integer> map = new HashMap<>();
+        for (int i = 0;i<nums.length;i++) {
+            if(map.containsKey(target-nums[i])){
+                return new int[]{i,map.get(target-nums[i])};
+            }else{
+                map.put(nums[i],i);
             }
-            hashMap.put(nums[i], i);
         }
         return null;
     }

@@ -49,24 +49,21 @@ import java.util.Set;
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public void setZeroes(int[][] matrix) {
-        //两次遍历 第一次记录有0的行和列
-        //第二次遍历 如果i是含0的行或j是含0的列 那么matrix[i][j]就是0;
         Set<Integer> rowSet = new HashSet<>();
         Set<Integer> colSet = new HashSet<>();
-        int row = matrix.length;
-        int col = matrix[0].length;
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                if (matrix[i][j] == 0) {
+        int row = matrix.length, col = matrix[0].length;
+        for(int i = 0;i<row;i++){
+            for(int j = 0;j<col;j++){
+                if(matrix[i][j] == 0){
                     rowSet.add(i);
                     colSet.add(j);
                 }
             }
         }
 
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                if(rowSet.contains(i)||colSet.contains(j)){
+        for(int i = 0;i<row;i++){
+            for(int j = 0;j<col;j++){
+                if(rowSet.contains(i) || colSet.contains(j)){
                     matrix[i][j] = 0;
                 }
             }

@@ -40,18 +40,18 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int maxArea(int[] height) {
-        int i = 0, j = height.length - 1, res = 0;
-        //不用考虑等于 等于时面积为0
-        while (i < j) {
-            if (height[i] < height[j]) {
-                //如果左侧小于右侧 那么面积是  (j - i) * height[i] 左边界右移
-                res = Math.max(res, (j - i) * height[i++]);
-            } else {
-                //反之那么面积是  (j - i) * height[j] 右边界左移
-                res = Math.max(res, (j - i) * height[j--]);
+        int left = 0,right = height.length-1;
+        int max = 0;
+        while(left<right){
+            int area = 0;
+            if(height[left]<height[right]){
+                area = (right-left)*height[left++];
+            }else{
+                area = (right-left)*height[right--];
             }
+            max = Math.max(max,area);
         }
-        return res;
+        return max;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

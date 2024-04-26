@@ -36,18 +36,15 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public void rotate(int[][] matrix) {
-        //对于矩阵中第 i 行的第 j个元素，在旋转后，它出现在倒数第 i 列的第 j 个位置
-        //使用新数组记录 然后写回原数组
         int n = matrix.length;
         int[][] temp = new int[n][n];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                temp[j][n - i - 1] = matrix[i][j];
+        for(int i = 0;i<n;i++){
+            for(int j = 0;j<n;j++){
+                temp[j][n-i-1] = matrix[i][j];
             }
         }
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
+        for(int i = 0;i<n;i++){
+            for(int j = 0;j<n;j++){
                 matrix[i][j] = temp[i][j];
             }
         }

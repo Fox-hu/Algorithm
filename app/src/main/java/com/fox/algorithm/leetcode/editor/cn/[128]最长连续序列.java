@@ -36,25 +36,19 @@ import java.util.Set;
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int longestConsecutive(int[] nums) {
-        //1.使用set 过滤掉重复数据
+        if(nums.length == 0) return 0;
         Set<Integer> set = new HashSet<>();
         for (int num : nums) {
             set.add(num);
         }
-        int max = 0;
-        //遍历nums，对于当前num 如果set中没有num-1 那么长度就应该重置为1
-        //如果set中有num+1 那么继续去找num+2\3...n 找到最长长度
-        //更新循环的最大长度 遍历结束时 即可得出最大长度
-        for (Integer num : set) {
-            //如果一个数num在集合中，而num-1也在集合中，那么num就不是连续序列的起始点
-            //所以这里只检查 num在集合中，而num-1不在集合中的数字
-            if (!set.contains(num - 1)) {
+        int max = 1;
+        for (int num : nums) {
+            if(!set.contains(num-1)){
                 int currentNum = num;
-                int currentSize = 1;
-                //这里的currentNum每次遍历都会自增
-                while (set.contains(currentNum + 1)) {
-                    currentNum += 1;
-                    currentSize += 1 ;
+                int currentSize = 0;
+                while(set.contains(currentNum)){
+                    currentNum++;
+                    currentSize++;
                 }
                 max = Math.max(max,currentSize);
             }

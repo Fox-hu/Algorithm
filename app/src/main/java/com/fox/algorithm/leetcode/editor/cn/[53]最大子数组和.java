@@ -45,24 +45,16 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int maxSubArray(int[] nums) {
-        //假设 dp(i) 是以 nums[i] 结尾的最大连续子序列和（nums是整个序列）
-        //那么可以得出
-        //当dp[i-1]<=0时 dp[i] = nums[i]
-        //当dp[i-1]>0时 dp[i] = dp[i-1] + nums[i]
-        //得出最大的和即可
         int[] dp = new int[nums.length];
         dp[0] = nums[0];
-        int max = dp[0];
-
-        for (int i = 1; i < nums.length; i++) {
-            //注意 这里是dp[i-1] 而不是nums[i-1]
-            //状态转移方程是根据dp[i-1] 而不是根据nums[i]来判断
-            if (dp[i - 1] < 0) {
+        int max = nums[0];
+        for(int i=1;i<nums.length;i++){
+            if(dp[i-1] <0){
                 dp[i] = nums[i];
-            } else {
-                dp[i] = dp[i - 1] + nums[i];
+            }else{
+                dp[i] = dp[i-1] + nums[i];
             }
-            max = Math.max(max, dp[i]);
+            max = Math.max(max,dp[i]);
         }
         return max;
     }

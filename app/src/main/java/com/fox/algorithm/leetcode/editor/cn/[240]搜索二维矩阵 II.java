@@ -43,16 +43,13 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
-        //z型查找 由题意可得 我们将起始点设置在矩阵右上角 比较其与target 如果相等则返回
-        //如果>target 因为列是升序的 那么可以直接忽略这一列，列--
-        //如果<target 因为行是升序的 那么可以直接忽略这一行，行++
-        int m = matrix.length, n = matrix[0].length;
-        int x = 0, y = n - 1;
-        while (x < m && y >= 0) {
-            if (matrix[x][y] == target) return true;
-            if (matrix[x][y] > target) {
+        int x = 0,y = matrix[0].length-1;
+        while( y>=0 && x<matrix.length){
+            if(matrix[x][y] == target){
+                return true;
+            }else if (matrix[x][y] > target){
                 y--;
-            } else {
+            }else{
                 x++;
             }
         }

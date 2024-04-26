@@ -61,7 +61,7 @@ class Solution {
         ListNode dummy = new ListNode(0, head);
         ListNode cur = dummy;
         int length = getListNodeLength(head);
-        for (int i = 1; i < length - n + 1; i++) {
+        for (int i = 0; i < length - n; i++) {
             cur = cur.next;
         }
         //删除节点 注意是cur.next 不是cur
